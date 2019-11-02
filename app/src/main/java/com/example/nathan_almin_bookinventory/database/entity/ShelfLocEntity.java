@@ -4,7 +4,7 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity(tableName = "shelfloc")
 public class ShelfLocEntity {
     @PrimaryKey(autoGenerate = true)
     private int id;
