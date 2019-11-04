@@ -16,8 +16,11 @@ public interface BookDao {
     @Query("SELECT * FROM books")
     List<BookEntity> getAll();
 
-    @Query("SELECT * FROM books WHERE id IN (:autorIds)")
-    List<BookEntity> loadAllByIds(int[] autorIds);
+    @Query("SELECT * FROM books WHERE idAutor = :idAutor")
+    List<BookEntity> loadAllByAutor(int idAutor);
+
+    @Query("SELECT * FROM Books WHERE idCategory = :idCategory")
+    List<BookEntity> getBooksByCategory(int idCategory);
 
     @Query("SELECT * FROM books WHERE title LIKE :title LIMIT 1")
     BookEntity findByName(String title);
@@ -26,7 +29,7 @@ public interface BookDao {
     void insertAll(BookEntity... books) throws SQLiteConstraintException;
 
     @Update
-    void updateFruits(BookEntity... books);
+    void updateBooks(BookEntity... books);
 
     @Delete
     void delete(BookEntity books);

@@ -3,13 +3,26 @@ package com.example.nathan_almin_bookinventory.database.entity;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import androidx.room.ForeignKey;
+import androidx.room.Index;
 
 import java.util.Date;
 
-@Entity(tableName = "books")
+@Entity(tableName = "books",
+        foreignKeys ={
+                @ForeignKey(
+                        entity = AutorEntity.class, parentColumns = "id", childColumns = "idCategory", onDelete = ForeignKey.CASCADE),
+                @ForeignKey(
+                        entity = AutorEntity.class, parentColumns = "id", childColumns = "idAutor", onDelete = ForeignKey.CASCADE)},
+        indices = {
+                @Index(
+                        value = {"fk_author"}
+                )}
+)
 public class BookEntity {
 
     @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id")
     private int id;
 
     @ColumnInfo(name = "title")
