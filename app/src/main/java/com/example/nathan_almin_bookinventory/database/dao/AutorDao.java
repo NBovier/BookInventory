@@ -20,13 +20,13 @@ public interface AutorDao {
     AutorEntity findByName(String autorName);
 
     @Insert
-    void insert(AutorEntity autor);
+    void insertAutor(AutorEntity autor);
 
     @Update
     void updateAutor(AutorEntity... autors);
 
     @Delete
-    void delete(AutorEntity fruits);
+    void deleteAutor(AutorEntity fruits);
 
     @Query("DELETE FROM autors")
     void deleteAll();

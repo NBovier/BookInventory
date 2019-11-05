@@ -22,11 +22,11 @@ public interface CategoryDao {
     CategoryEntity getByName(String catName);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insert(CategoryEntity category);
+    void insertCategory(CategoryEntity category);
 
     @Update
-    void update(CategoryEntity category);
+    void updateCategory(CategoryEntity category);
 
     @Delete
-    void delete(CategoryEntity category);
+    void deleteCategory(CategoryEntity category);
 }

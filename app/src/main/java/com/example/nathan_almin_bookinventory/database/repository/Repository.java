@@ -53,21 +53,60 @@ public class Repository {
         return mAllCategories;
     }
 
-    public void insert (AutorEntity autor) {
-        new insertAsyncTask(mAutorDao).execute(autor);
+    public void insertAutor (AutorEntity autor) {
+        new insertAutorAsyncTask(mAutorDao).execute(autor);
     }
 
-    private static class insertAsyncTask extends AsyncTask<AutorEntity, Void, Void> {
+    public void insertBook (BookEntity book) {
+        new insertBookAsyncTask(mBookDao).execute(book);
+    }
+
+    public void insertCategory (CategoryEntity category) {
+        new insertCategoryAsyncTask(mCategoryDao).execute(category);
+    }
+
+    private static class insertCategoryAsyncTask extends AsyncTask<CategoryEntity, Void, Void> {
+
+        private CategoryDao mAsyncTaskDao;
+
+        insertCategoryAsyncTask(CategoryDao dao) {
+            mAsyncTaskDao = dao;
+        }
+
+        @Override
+        protected Void doInBackground(final CategoryEntity... params) {
+            mAsyncTaskDao.insertCategory(params[0]);
+            return null;
+        }
+    }
+
+
+    private static class insertBookAsyncTask extends AsyncTask<BookEntity, Void, Void> {
+
+        private BookDao mAsyncTaskDao;
+
+        insertBookAsyncTask(BookDao dao) {
+            mAsyncTaskDao = dao;
+        }
+
+        @Override
+        protected Void doInBackground(final BookEntity... params) {
+            mAsyncTaskDao.insertBook(params[0]);
+            return null;
+        }
+    }
+
+    private static class insertAutorAsyncTask extends AsyncTask<AutorEntity, Void, Void> {
 
         private AutorDao mAsyncTaskDao;
 
-        insertAsyncTask(AutorDao dao) {
+        insertAutorAsyncTask(AutorDao dao) {
             mAsyncTaskDao = dao;
         }
 
         @Override
         protected Void doInBackground(final AutorEntity... params) {
-            mAsyncTaskDao.insert(params[0]);
+            mAsyncTaskDao.insertAutor(params[0]);
             return null;
         }
     }

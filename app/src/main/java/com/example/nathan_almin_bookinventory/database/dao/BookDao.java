@@ -27,7 +27,7 @@ public interface BookDao {
     BookEntity findByName(String title);
 
     @Insert
-    void insert(BookEntity book);
+    void insertBook(BookEntity book);
 
     @Update
     void updateBook(BookEntity book);
