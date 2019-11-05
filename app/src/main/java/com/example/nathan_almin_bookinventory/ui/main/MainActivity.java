@@ -1,6 +1,7 @@
 package com.example.nathan_almin_bookinventory.ui.main;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,8 +13,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.nathan_almin_bookinventory.R;
 import com.google.android.material.navigation.NavigationView;
-
-import android.support.design.widget.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         slider = findViewById(R.id.silder);
 
         //instance of navication drawer
-        toggle = new ActionBarDrawerToggle(this, drawerLayout, "Open", "Close");
+        toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -56,6 +55,25 @@ public class MainActivity extends AppCompatActivity {
                         return onOptionsItemSelected(item);
                     }
                 });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return toggle != null && toggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        if (toggle != null)
+            toggle.syncState();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        if (toggle != null)
+            toggle.onConfigurationChanged(newConfig);
     }
 
     public void showBooks() {
