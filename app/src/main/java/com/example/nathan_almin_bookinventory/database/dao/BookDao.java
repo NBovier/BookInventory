@@ -10,26 +10,27 @@ import androidx.room.Update;
 import com.example.nathan_almin_bookinventory.database.entity.BookEntity;
 
 import java.util.List;
+import androidx.lifecycle.LiveData;
 
 public interface BookDao {
 
     @Query("SELECT * FROM books")
-    List<BookEntity> getAll();
+    LiveData<List<BookEntity>> getAll();
 
     @Query("SELECT * FROM books WHERE idAutor = :idAutor")
-    List<BookEntity> loadAllByAutor(int idAutor);
+    LiveData<List<BookEntity>> loadAllByAutor(int idAutor);
 
     @Query("SELECT * FROM Books WHERE idCategory = :idCategory")
-    List<BookEntity> getBooksByCategory(int idCategory);
+    LiveData<List<BookEntity>> getBooksByCategory(int idCategory);
 
     @Query("SELECT * FROM books WHERE title LIKE :title LIMIT 1")
     BookEntity findByName(String title);
 
     @Insert
-    void insertAll(BookEntity... books) throws SQLiteConstraintException;
+    void insert(BookEntity book);
 
     @Update
-    void updateBooks(BookEntity... books);
+    void updateBook(BookEntity book);
 
     @Delete
     void delete(BookEntity books);

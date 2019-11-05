@@ -6,23 +6,24 @@ import androidx.room.*;
 import com.example.nathan_almin_bookinventory.database.entity.AutorEntity;
 
 import java.util.List;
+import androidx.lifecycle.LiveData;
 
 public interface AutorDao {
 
     @Query("SELECT * FROM autors")
-    List<AutorEntity> getAll();
+    LiveData<List<AutorEntity>> getAll();
 
     @Query("SELECT * FROM autors WHERE id IN (:autorIds)")
-    List<AutorEntity> loadAllByIds(int[] autorIds);
+    LiveData<List<AutorEntity>> loadAllByIds(int[] autorIds);
 
     @Query("SELECT * FROM autors WHERE autor_name LIKE :autorName LIMIT 1")
     AutorEntity findByName(String autorName);
 
     @Insert
-    void insertAll(AutorEntity... autors) throws SQLiteConstraintException;
+    void insert(AutorEntity autor);
 
     @Update
-    void updateFruits(AutorEntity... autors);
+    void updateAutor(AutorEntity... autors);
 
     @Delete
     void delete(AutorEntity fruits);

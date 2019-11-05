@@ -8,16 +8,17 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.example.nathan_almin_bookinventory.database.entity.ShelfLocEntity;
+import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
 public interface ShelfLocDao {
 
     @Query("SELECT * FROM shelfloc")
-    List<ShelfLocEntity> getAll();
+    LiveData<List<ShelfLocEntity>> getAll();
 
     @Query("SELECT * FROM shelfloc WHERE id IN (:shelflocIds)")
-    List<ShelfLocEntity> loadAllByIds(int[] shelflocIds);
+    LiveData<List<ShelfLocEntity>> loadAllByIds(int[] shelflocIds);
 
 
     @Insert

@@ -8,11 +8,12 @@ import androidx.room.Update;
 import androidx.room.OnConflictStrategy;
 
 import com.example.nathan_almin_bookinventory.database.entity.CategoryEntity;
+import androidx.lifecycle.LiveData;
 
 public interface CategoryDao {
 
     @Query("SELECT * FROM Categories")
-    List<CategoryEntity> getAllS();
+    LiveData<List<CategoryEntity>> getAll();
 
     @Query("SELECT * FROM Categories WHERE id = :id")
     CategoryEntity getById(int id);

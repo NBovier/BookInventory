@@ -7,22 +7,50 @@ import androidx.lifecycle.LiveData;
 
 import com.example.nathan_almin_bookinventory.database.LocalDatabase;
 import com.example.nathan_almin_bookinventory.database.dao.AutorDao;
+import com.example.nathan_almin_bookinventory.database.dao.BookDao;
+import com.example.nathan_almin_bookinventory.database.dao.CategoryDao;
+import com.example.nathan_almin_bookinventory.database.dao.ShelfLocDao;
 import com.example.nathan_almin_bookinventory.database.entity.AutorEntity;
+import com.example.nathan_almin_bookinventory.database.entity.BookEntity;
+import com.example.nathan_almin_bookinventory.database.entity.CategoryEntity;
 
 import java.util.List;
 
-public class AutorRepository {
-    private AutorDao mAutorDao;
-    private LiveData<List<AutorEntity>> mAllAutors;
+public class Repository {
 
-    AutorRepository(Application application) {
+    //DAO
+    private AutorDao mAutorDao;
+    private CategoryDao mCategoryDao;
+    private BookDao mBookDao;
+    private ShelfLocDao mShelfLocDao;
+
+    //LiveData
+    private LiveData<List<AutorEntity>> mAllAutors;
+    private LiveData<List<BookEntity>> mAllBooks;
+    private LiveData<List<CategoryEntity>> mAllCategories;
+
+    Repository(Application application) {
         LocalDatabase db = LocalDatabase.getLocalDatabase(application);
+
+
         mAutorDao = db.autorDao();
+        mCategoryDao = db.categoryDao();
+        mBookDao = db.bookDao();
+        mShelfLocDao = db.shelfLocDao();
+
         mAllAutors = mAutorDao.getAll();
+        mAllBooks = mBookDao.getAll();
+        mAllCategories = mCategoryDao.getAll();
     }
 
-    LiveData<List<AutorEntity>> getAll() {
+    LiveData<List<AutorEntity>> getAllAutors() {
         return mAllAutors;
+    }
+    LiveData<List<BookEntity>> getAllBooks() {
+        return mAllBooks;
+    }
+    LiveData<List<CategoryEntity>> getAllCategories() {
+        return mAllCategories;
     }
 
     public void insert (AutorEntity autor) {
