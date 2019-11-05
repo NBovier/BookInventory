@@ -25,4 +25,7 @@ public class book_details extends AppCompatActivity {
 
     public void showAuthors(View view) {
     }
+
+    public void deleteBook(View view) {
+    }
 }

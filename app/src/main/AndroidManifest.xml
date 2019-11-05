@@ -11,34 +11,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-
-
-        <activity android:name=".ui.main.author_add"
-            android:label="@string/title_activity_authors_add"/>
-
-
+        <activity android:name=".ui.main.author_details"
+            android:label="@string/title_activity_authors_details"/>
+        <activity
+            android:name=".ui.main.author_add"
+            android:label="@string/title_activity_authors_add" />
         <activity
             android:name=".ui.main.authors_search"
             android:label="@string/title_activity_authors_search"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-        <!-- Details ! -->
+            android:theme="@style/AppTheme.NoActionBar" /> <!-- Details ! -->
         <activity
             android:name=".ui.main.book_details"
-            android:label="@string/title_activity_books_details" />
-
-        <!-- Add ! -->
+            android:label="@string/title_activity_books_details" /> <!-- Add ! -->
         <activity
             android:name=".ui.main.book_add"
-            android:label="@string/title_activity_books_add" />
-
-        <!-- Search books ! -->
+            android:label="@string/title_activity_books_add" /> <!-- Search books ! -->
         <activity
             android:name=".ui.main.books_search"
             android:label="@string/title_activity_books_search"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-        <!-- Main ! -->
+            android:theme="@style/AppTheme.NoActionBar" /> <!-- Main ! -->
         <activity android:name=".ui.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
