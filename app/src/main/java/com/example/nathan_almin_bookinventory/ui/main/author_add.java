@@ -8,17 +8,17 @@ import android.view.View;
 
 import com.example.nathan_almin_bookinventory.R;
 
-public class book_add extends AppCompatActivity {
+public class author_add extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_book_add);
+        setContentView(R.layout.activity_author_add);
     }
 
-    public void showBooks(View view) {
-        Intent intent = new Intent(this, books_search.class);
+
+    public void showAuthors(View view) {
+        Intent intent = new Intent(this, authors_search.class);
         startActivity(intent);
     }
-
 }

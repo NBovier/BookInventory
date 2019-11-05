@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showAuthors() {
-        Intent intent = new Intent(this, books_search.class);
+        Intent intent = new Intent(this, authors_search.class);
         startActivity(intent);
     }
 
@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void showAuthors(View view) {
-        Intent intent = new Intent(this, books_search.class);
+        Intent intent = new Intent(this, authors_search.class);
         startActivity(intent);
     }
 

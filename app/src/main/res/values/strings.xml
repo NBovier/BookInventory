@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">Book inventory</string>
-    <string name="title_activity_books_search">Search</string>
+    <string name="title_activity_books_search">Search books</string>
     <string name="title_activity_books_details">Details</string>
     <string name="title_activity_books_add">Add new book</string>
-    <string name="title_activity_menuhide">menuhide</string>
+    <string name="title_activity_menuhide">Menu</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -17,4 +17,6 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
+    <string name="title_activity_authors_search">Search authors</string>
+    <string name="title_activity_authors_add"> Add new author</string>
 </resources>
