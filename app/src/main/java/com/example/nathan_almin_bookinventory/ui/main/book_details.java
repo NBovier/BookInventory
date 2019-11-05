@@ -22,6 +22,7 @@ public class book_details extends AppCompatActivity {
     public void editBook(View view) {
     }
 
-    public void showAutor(View view) {
+
+    public void showAuthors(View view) {
     }
 }

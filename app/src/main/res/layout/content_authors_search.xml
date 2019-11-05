@@ -13,7 +13,7 @@
         android:layout_height="match_parent">
 
         <SearchView
-            android:id="@+id/search_bar_autor"
+            android:id="@+id/search_bar_author"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_alignParentStart="true"
@@ -26,7 +26,7 @@
             android:id="@+id/listAuthors"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_below="@+id/search_bar_autor"
+            android:layout_below="@+id/search_bar_author"
             tools:ignore="MissingConstraints" />
 
     </RelativeLayout>

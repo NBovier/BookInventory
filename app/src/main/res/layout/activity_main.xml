@@ -35,10 +35,10 @@
             android:layout_width="match_parent"
             android:layout_height="130dp"
             android:background="#00FFFFFF"
-            android:contentDescription="Autors_Management"
+            android:contentDescription="Authors_Management"
             android:onClick="showAuthors"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/autor_manage"
+            app:srcCompat="@drawable/author_manage"
             tools:ignore="VectorDrawableCompat" />
 
         <ImageButton

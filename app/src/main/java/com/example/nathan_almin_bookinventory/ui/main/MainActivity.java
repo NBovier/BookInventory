@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                         if (id == R.id.nav_books) {
                             showBooks();
                         }
-                        if (id == R.id.nav_autors) {
+                        if (id == R.id.nav_authors) {
                             showAuthors();
                         }
                         if (id == R.id.nav_shelflocs) {

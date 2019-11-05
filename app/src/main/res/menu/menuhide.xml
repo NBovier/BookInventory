@@ -13,8 +13,8 @@
                 android:id="@+id/nav_books"
                 android:title="Manage books" />
             <item
-                android:id="@+id/nav_autors"
-                android:title="Manage autors" />
+                android:id="@+id/nav_authors"
+                android:title="Manage authors" />
             <item
                 android:id="@+id/nav_shelflocs"
                 android:title="Manage shelf locations" />

@@ -56,7 +56,7 @@
             android:layout_alignParentLeft="true"
             android:gravity="bottom"
             android:padding="10dp"
-            android:text="Autor"
+            android:text="Author"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp" />
 

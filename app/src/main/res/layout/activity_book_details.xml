@@ -73,7 +73,7 @@
             android:layout_alignParentLeft="true"
             android:layout_marginTop="25dp"
             android:padding="10dp"
-            android:text="Autor"
+            android:text="Author"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp" />
 
@@ -89,7 +89,7 @@
             android:layout_marginLeft="0dp"
             android:layout_marginTop="25dp"
             android:layout_toRightOf="@+id/tv_add_book_author"
-            android:onClick="showAutor"
+            android:onClick="showAuthors"
             android:spinnerMode="dialog"
             android:textSize="18sp" />
 
