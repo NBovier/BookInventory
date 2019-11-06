@@ -17,7 +17,11 @@ import java.util.Date;
         indices = {
                 @Index(
                         value = {"idAutor"}
-                )}
+                ),
+                @Index(
+                        value = {"idCategory"}
+                )
+                }
 )
 public class BookEntity {
 
