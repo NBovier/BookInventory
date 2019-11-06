@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.shelfloc_add">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+
+        <EditText
+            android:id="@+id/et_add_shelfloc_floor"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="25dp"
+            android:maxLines="1"
+            android:inputType="number"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:clickable="true"
+            android:gravity="bottom"
+            android:hint="Floor..."
+            android:focusable="true" />
+
+        <EditText
+            android:id="@+id/et_add_shelfloc_row"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="75dp"
+            android:maxLines="1"
+            android:inputType="number"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/et_add_shelfloc_floor"
+            android:clickable="true"
+            android:gravity="bottom"
+            android:hint="Row..."
+            android:focusable="true" />
+
+
+        <EditText
+            android:id="@+id/et_add_shelfloc_block"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="75dp"
+            android:layout_below="@+id/et_add_shelfloc_row"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:hint="Block..."
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/et_add_shelfloc_shelnumber"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="75dp"
+            android:layout_below="@+id/et_add_shelfloc_block"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:hint="Shelf number..."
+            android:inputType="number" />
+
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/validateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:clickable="true"
+            android:onClick="addShelfLoc"
+            android:src="@android:drawable/ic_menu_upload" />
+
+    </RelativeLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
