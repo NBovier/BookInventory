@@ -11,12 +11,12 @@ import java.util.Date;
 @Entity(tableName = "books",
         foreignKeys ={
                 @ForeignKey(
-                        entity = AutorEntity.class, parentColumns = "id", childColumns = "idCategory", onDelete = ForeignKey.CASCADE),
+                        entity = CategoryEntity.class, parentColumns = "id", childColumns = "idCategory", onDelete = ForeignKey.CASCADE),
                 @ForeignKey(
                         entity = AutorEntity.class, parentColumns = "id", childColumns = "idAutor", onDelete = ForeignKey.CASCADE)},
         indices = {
                 @Index(
-                        value = {"fk_author"}
+                        value = {"idAutor"}
                 )}
 )
 public class BookEntity {
