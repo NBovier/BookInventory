@@ -20,8 +20,7 @@ import java.util.Date;
                 ),
                 @Index(
                         value = {"idCategory"}
-                )
-                }
+                )}
 )
 public class BookEntity {
 
