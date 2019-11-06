@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showShelfLocs() {
-        Intent intent = new Intent(this, books_search.class);
+        Intent intent = new Intent(this, shelfloc_add.class);
         startActivity(intent);
     }
 
@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showShelfLocs(View view) {
-        Intent intent = new Intent(this, books_search.class);
+        Intent intent = new Intent(this, shelfloc_add.class);
         startActivity(intent);
     }
 }
