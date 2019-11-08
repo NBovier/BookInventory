@@ -46,6 +46,9 @@ public class BookEntity {
     @ColumnInfo(name = "idLoc")
     private int idLoc;
 
+    public BookEntity(String title, String date, String summary, int idAutor, int idCategory, int idLoc) {
+    }
+
     public int getId() {
         return id;
     }
