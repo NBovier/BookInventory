@@ -7,6 +7,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
+import com.example.nathan_almin_bookinventory.database.entity.AutorEntity;
 import com.example.nathan_almin_bookinventory.database.entity.ShelfLocEntity;
 import androidx.lifecycle.LiveData;
 
@@ -22,14 +23,11 @@ public interface ShelfLocDao {
 
 
     @Insert
-    void insertAll(ShelfLocEntity... books) throws SQLiteConstraintException;
+    void insertShelfLoc(ShelfLocEntity shelfLoc);
 
     @Update
-    void updateFruits(ShelfLocEntity... books);
+    void updateShelfLoc(ShelfLocEntity... shelfLoc);
 
     @Delete
-    void delete(ShelfLocEntity books);
-
-    @Query("DELETE FROM books")
-    void deleteAll();
+    void deleteShelfLoc(ShelfLocEntity shelfLoc);
 }

@@ -26,7 +26,7 @@ public interface AutorDao {
     void updateAutor(AutorEntity... autors);
 
     @Delete
-    void deleteAutor(AutorEntity fruits);
+    void deleteAutor(AutorEntity autor);
 
     @Query("DELETE FROM autors")
     void deleteAll();

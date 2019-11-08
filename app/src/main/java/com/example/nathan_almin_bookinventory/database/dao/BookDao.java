@@ -33,7 +33,7 @@ public interface BookDao {
     void updateBook(BookEntity book);
 
     @Delete
-    void delete(BookEntity books);
+    void deleteBook(BookEntity books);
 
     @Query("DELETE FROM books")
     void deleteAll();

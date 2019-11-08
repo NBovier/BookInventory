@@ -25,7 +25,7 @@ public class AutorRepository {
         return mAllAutors;
     }
 
-    public void insert (AutorEntity autor) {
+    public void insertAutor (AutorEntity autor) {
         new insertAsyncTask(mAutorDao).execute(autor);
     }
 
@@ -39,7 +39,7 @@ public class AutorRepository {
 
         @Override
         protected Void doInBackground(final AutorEntity... params) {
-            mAsyncTaskDao.insert(params[0]);
+            mAsyncTaskDao.insertAutor(params[0]);
             return null;
         }
     }
