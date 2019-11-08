@@ -2,10 +2,12 @@ package com.example.nathan_almin_bookinventory.database.repository;
 
 import android.app.Application;
 import android.os.AsyncTask;
+import com.example.nathan_almin_bookinventory.database.async.*;
 
 import androidx.lifecycle.LiveData;
 
 import com.example.nathan_almin_bookinventory.database.LocalDatabase;
+import com.example.nathan_almin_bookinventory.database.async.AutorCreate;
 import com.example.nathan_almin_bookinventory.database.dao.AutorDao;
 import com.example.nathan_almin_bookinventory.database.entity.AutorEntity;
 
@@ -26,22 +28,7 @@ public class AutorRepository {
     }
 
     public void insertAutor (AutorEntity autor) {
-        new insertAsyncTask(mAutorDao).execute(autor);
-    }
-
-    private static class insertAsyncTask extends AsyncTask<AutorEntity, Void, Void> {
-
-        private AutorDao mAsyncTaskDao;
-
-        insertAsyncTask(AutorDao dao) {
-            mAsyncTaskDao = dao;
-        }
-
-        @Override
-        protected Void doInBackground(final AutorEntity... params) {
-            mAsyncTaskDao.insertAutor(params[0]);
-            return null;
-        }
+        new AutorCreate(mAutorDao).execute(autor);
     }
 
 }
