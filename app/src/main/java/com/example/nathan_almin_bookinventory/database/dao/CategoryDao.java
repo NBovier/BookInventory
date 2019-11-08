@@ -1,6 +1,8 @@
 package com.example.nathan_almin_bookinventory.database.dao;
 
 import java.util.List;
+
+import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -10,6 +12,7 @@ import androidx.room.OnConflictStrategy;
 import com.example.nathan_almin_bookinventory.database.entity.CategoryEntity;
 import androidx.lifecycle.LiveData;
 
+@Dao
 public interface CategoryDao {
 
     @Query("SELECT * FROM Categories")

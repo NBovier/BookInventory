@@ -8,6 +8,7 @@ import com.example.nathan_almin_bookinventory.database.entity.AutorEntity;
 import java.util.List;
 import androidx.lifecycle.LiveData;
 
+@Dao
 public interface AutorDao {
 
     @Query("SELECT * FROM autors")

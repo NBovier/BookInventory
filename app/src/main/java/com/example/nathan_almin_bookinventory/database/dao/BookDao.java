@@ -2,6 +2,7 @@ package com.example.nathan_almin_bookinventory.database.dao;
 
 import android.database.sqlite.SQLiteConstraintException;
 
+import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -12,6 +13,7 @@ import com.example.nathan_almin_bookinventory.database.entity.BookEntity;
 import java.util.List;
 import androidx.lifecycle.LiveData;
 
+@Dao
 public interface BookDao {
 
     @Query("SELECT * FROM books")

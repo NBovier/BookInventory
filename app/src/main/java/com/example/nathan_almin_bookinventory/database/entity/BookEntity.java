@@ -32,7 +32,7 @@ public class BookEntity {
     private String title;
 
     @ColumnInfo(name = "date")
-    private Date date;
+    private String date;
 
     @ColumnInfo(name = "summary")
     private String summary;
@@ -62,11 +62,11 @@ public class BookEntity {
         this.title = title;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

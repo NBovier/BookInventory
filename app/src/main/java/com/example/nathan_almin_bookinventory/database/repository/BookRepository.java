@@ -15,13 +15,13 @@ public class BookRepository {
     private BookDao mBookDao;
     private LiveData<List<BookEntity>> mAllBooks;
 
-    BookRepository(Application application) {
+    public BookRepository(Application application) {
         LocalDatabase db = LocalDatabase.getLocalDatabase(application);
         mBookDao = db.bookDao();
         mAllBooks = mBookDao.getAll();
     }
 
-    LiveData<List<BookEntity>> getAll() {
+    public LiveData<List<BookEntity>> getAll() {
         return mAllBooks;
     }
 
