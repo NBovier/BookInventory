@@ -23,8 +23,5 @@ public class AutorEntity {
 
     public void setAutorName(String autorName) { this.autorName = autorName; }
 
-    public AutorEntity(int id, String autorName) {
-        this.autorName = autorName;
-        this.id = id;
-    }
+
 }

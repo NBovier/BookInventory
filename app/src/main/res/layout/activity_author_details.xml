@@ -14,7 +14,7 @@
         tools:layout_editor_absoluteY="0dp">
 
         <TextView
-            android:id="@+id/tv_add_author_firstname"
+            android:id="@+id/tv_details_author_firstname"
             android:layout_width="120dp"
             android:layout_height="50dp"
             android:layout_alignParentStart="true"
@@ -26,7 +26,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/tv_add_author_Showfirstname"
+            android:id="@+id/tv_details_author_Showfirstname"
             android:layout_width="120dp"
             android:layout_height="50dp"
             android:layout_alignParentEnd="true"
@@ -34,13 +34,13 @@
             android:layout_marginStart="0dp"
             android:layout_marginLeft="191dp"
             android:layout_marginTop="25dp"
-            android:layout_toRightOf="@+id/tv_add_author_firstname" />
+            android:layout_toRightOf="@+id/tv_details_author_firstname" />
 
         <TextView
-            android:id="@+id/tv_add_author_lastname"
+            android:id="@+id/tv_details_author_lastname"
             android:layout_width="120dp"
             android:layout_height="50dp"
-            android:layout_below="@id/tv_add_author_Showfirstname"
+            android:layout_below="@id/tv_details_author_Showfirstname"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="25dp"
@@ -51,24 +51,24 @@
 
 
         <TextView
-            android:id="@+id/tv_add_author_Showlastname"
+            android:id="@+id/tv_details_author_Showlastname"
             android:layout_width="120dp"
             android:layout_height="50dp"
-            android:layout_below="@+id/tv_add_author_Showfirstname"
+            android:layout_below="@+id/tv_details_author_Showfirstname"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_marginStart="0dp"
             android:layout_marginLeft="0dp"
             android:layout_marginTop="25dp"
-            android:layout_toRightOf="@+id/tv_add_author_lastname"
+            android:layout_toRightOf="@+id/tv_details_author_lastname"
             android:focusable="false" />
 
 
         <TextView
-            android:id="@+id/tv_add_author_date"
+            android:id="@+id/tv_details_author_date"
             android:layout_width="120dp"
             android:layout_height="50dp"
-            android:layout_below="@id/tv_add_author_lastname"
+            android:layout_below="@id/tv_details_author_lastname"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="25dp"
@@ -79,24 +79,24 @@
 
 
         <TextView
-            android:id="@+id/sp_add_author_Showdate"
+            android:id="@+id/sp_details_author_Showdate"
             android:layout_width="120dp"
             android:layout_height="50dp"
-            android:layout_below="@+id/tv_add_author_lastname"
+            android:layout_below="@+id/tv_details_author_lastname"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_marginStart="0dp"
             android:layout_marginLeft="0dp"
             android:layout_marginTop="25dp"
-            android:layout_toRightOf="@+id/tv_add_author_date"
+            android:layout_toRightOf="@+id/tv_details_author_date"
             android:spinnerMode="dialog"
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/tv_add_author_biblio"
+            android:id="@+id/tv_details_author_biblio"
             android:layout_width="120dp"
             android:layout_height="50dp"
-            android:layout_below="@+id/tv_add_author_date"
+            android:layout_below="@+id/tv_details_author_date"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="25dp"
@@ -106,10 +106,10 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/tv_add_author_Showbiblio"
+            android:id="@+id/tv_details_author_Showbiblio"
             android:layout_width="wrap_content"
             android:layout_height="230dp"
-            android:layout_below="@+id/tv_add_author_biblio"
+            android:layout_below="@+id/tv_details_author_biblio"
             android:layout_marginTop="0dp"
             android:ems="30"
             android:inputType="textMultiLine"
