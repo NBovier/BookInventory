@@ -15,7 +15,7 @@ public class ShelfLocRepository {
     private ShelfLocDao mShelfLocDao;
     private LiveData<List<ShelfLocEntity>> mAllShelfLoc;
 
-    ShelfLocRepository(Application application) {
+    public ShelfLocRepository(Application application) {
         LocalDatabase db = LocalDatabase.getLocalDatabase(application);
         mShelfLocDao = db.shelfLocDao();
         mAllShelfLoc = mShelfLocDao.getAll();

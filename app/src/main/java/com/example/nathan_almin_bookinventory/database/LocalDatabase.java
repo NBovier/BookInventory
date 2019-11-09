@@ -41,14 +41,14 @@ public abstract class LocalDatabase extends RoomDatabase {
                             // if no Migration object.
                             // Migration is not part of this practical.
                             .fallbackToDestructiveMigration()
-                            .addCallback(sRoomDatabaseCallback)
+                            //.addCallback(sRoomDatabaseCallback)
                             .build();
                 }
             }
         }
         return INSTANCE;
     }
-
+/*
     private static RoomDatabase.Callback sRoomDatabaseCallback =
             new RoomDatabase.Callback(){
 
@@ -58,4 +58,6 @@ public abstract class LocalDatabase extends RoomDatabase {
                     new PopulateDbAsync(INSTANCE).execute();
                 }
             };
+
+ */
 }
