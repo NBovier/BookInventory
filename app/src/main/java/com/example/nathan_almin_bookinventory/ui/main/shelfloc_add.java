@@ -59,22 +59,10 @@ public class shelfloc_add extends AppCompatActivity {
             public void onClick(View v) {
 
                 //Check if all field are filled
-                if(floor.getText().toString().matches("")){
-                    errorToast.show();
-                    return;
-                }
-
-                if(row.getText().toString().matches("")){
-                    errorToast.show();
-                    return;
-                }
-
-                if(block.getText().toString().matches("")){
-                    errorToast.show();
-                    return;
-                }
-
-                if(shelfNumber.getText().toString().matches("")){
+                if(floor.getText().toString().isEmpty() ||
+                    row.getText().toString().isEmpty() ||
+                    block.getText().toString().isEmpty() ||
+                    shelfNumber.getText().toString().isEmpty()){
                     errorToast.show();
                     return;
                 }
