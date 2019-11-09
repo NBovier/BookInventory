@@ -46,8 +46,8 @@ class PopulateDbAsync extends AsyncTask<Void, Void, Void> {
                                   final int idAutor,
                                   final int idCategory,
                                   final int idLoc) {
-        BookEntity book = new BookEntity(title, date, summary, idAutor, idCategory, idLoc);
-        db.bookDao().insertBook(book);
+        //BookEntity book = new BookEntity(title, date, summary, idAutor, idCategory, idLoc);
+        //db.bookDao().insertBook(book);
     }
 }
 

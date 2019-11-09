@@ -18,6 +18,9 @@
             <item
                 android:id="@+id/nav_shelflocs"
                 android:title="Manage shelf locations" />
+            <item
+                android:id="@+id/nav_category"
+                android:title="Manage categories" />
         </menu>
     </item>
 

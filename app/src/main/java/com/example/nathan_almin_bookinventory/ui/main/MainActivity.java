@@ -52,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
                         if (id == R.id.nav_shelflocs) {
                             showShelfLocs();
                         }
+                        if (id == R.id.nav_category) {
+                            showCategory();
+                        }
 
                         return onOptionsItemSelected(item);
                     }
@@ -92,6 +95,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void showCategory() {
+        Intent intent = new Intent(this, category_add.class);
+        startActivity(intent);
+    }
+
     public void showBooks(View view) {
         Intent intent = new Intent(this, books_search.class);
         startActivity(intent);
@@ -103,6 +111,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void showShelfLocs(View view) {
         Intent intent = new Intent(this, shelfloc_add.class);
+        startActivity(intent);
+    }
+
+    public void showCategory(View view) {
+        Intent intent = new Intent(this, category_add.class);
         startActivity(intent);
     }
 }

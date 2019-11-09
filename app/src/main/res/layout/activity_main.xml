@@ -51,6 +51,17 @@
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/shelfloc_manage"
             tools:ignore="VectorDrawableCompat" />
+
+        <ImageButton
+            android:id="@+id/buttonCategory"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:background="#00FFFFFF"
+            android:contentDescription="Category_Management"
+            android:onClick="showCategory"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/category_manage"
+            tools:ignore="VectorDrawableCompat" />
     </LinearLayout>
 
 

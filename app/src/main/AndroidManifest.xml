@@ -11,9 +11,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+        <activity android:name=".ui.main.category_add"
+            android:label="@string/title_activity_category_add"></activity>
         <activity
             android:name=".ui.main.shelfloc_add"
-            android:label="@string/title_activity_shelfloc_add"/>
+            android:label="@string/title_activity_shelfloc_add" />
         <activity
             android:name=".ui.main.author_details"
             android:label="@string/title_activity_authors_details" />
