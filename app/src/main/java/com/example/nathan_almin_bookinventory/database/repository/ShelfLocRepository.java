@@ -6,6 +6,8 @@ import android.os.AsyncTask;
 import androidx.lifecycle.LiveData;
 
 import com.example.nathan_almin_bookinventory.database.LocalDatabase;
+import com.example.nathan_almin_bookinventory.database.async.AutorCreate;
+import com.example.nathan_almin_bookinventory.database.async.ShelfLocCreate;
 import com.example.nathan_almin_bookinventory.database.dao.ShelfLocDao;
 import com.example.nathan_almin_bookinventory.database.entity.ShelfLocEntity;
 
@@ -25,23 +27,7 @@ public class ShelfLocRepository {
         return mAllShelfLoc;
     }
 
-    public void insertShelfLoc (ShelfLocEntity shelfLoc) {
-        new insertAsyncTask(mShelfLocDao).execute(shelfLoc);
+    public void insertShelfLoc (ShelfLocEntity ShelfLoc) {
+        new ShelfLocCreate(mShelfLocDao).execute(ShelfLoc);
     }
-
-    private static class insertAsyncTask extends AsyncTask<ShelfLocEntity, Void, Void> {
-
-        private ShelfLocDao mAsyncTaskDao;
-
-        insertAsyncTask(ShelfLocDao dao) {
-            mAsyncTaskDao = dao;
-        }
-
-        @Override
-        protected Void doInBackground(final ShelfLocEntity... params) {
-            mAsyncTaskDao.insertShelfLoc(params[0]);
-            return null;
-        }
-    }
-
 }

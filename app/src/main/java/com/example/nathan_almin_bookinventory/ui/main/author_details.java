@@ -19,5 +19,7 @@ public class author_details extends AppCompatActivity {
     }
 
     public void editAuthor(View view) {
+
+
     }
 }

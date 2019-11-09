@@ -25,22 +25,5 @@ public class CategoryRepository {
         return mAllCategory;
     }
 
-    public void insertCategory(CategoryEntity category) {
-        new insertAsyncTask(mCategoryDao).execute(category);
-    }
 
-    private static class insertAsyncTask extends AsyncTask<CategoryEntity, Void, Void> {
-
-        private CategoryDao mAsyncTaskDao;
-
-        insertAsyncTask(CategoryDao dao) {
-            mAsyncTaskDao = dao;
-        }
-
-        @Override
-        protected Void doInBackground(final CategoryEntity... params) {
-            mAsyncTaskDao.insertCategory(params[0]);
-            return null;
-        }
-    }
 }

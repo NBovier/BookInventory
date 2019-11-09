@@ -31,4 +31,12 @@ public class AutorRepository {
         new AutorCreate(mAutorDao).execute(autor);
     }
 
+    public void updateAutor (AutorEntity autor) {
+        new AutorUpdate(mAutorDao).execute(autor);
+    }
+
+    public void deleteAutor (AutorEntity autor) {
+        new AutorDelete(mAutorDao).execute(autor);
+    }
+
 }

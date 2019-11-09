@@ -6,6 +6,9 @@ import android.os.AsyncTask;
 import androidx.lifecycle.LiveData;
 
 import com.example.nathan_almin_bookinventory.database.LocalDatabase;
+import com.example.nathan_almin_bookinventory.database.async.BookCreate;
+import com.example.nathan_almin_bookinventory.database.async.BookDelete;
+import com.example.nathan_almin_bookinventory.database.async.BookUpdate;
 import com.example.nathan_almin_bookinventory.database.dao.BookDao;
 import com.example.nathan_almin_bookinventory.database.entity.BookEntity;
 
@@ -26,22 +29,14 @@ public class BookRepository {
     }
 
     public void insertBook (BookEntity book) {
-        new insertAsyncTask(mBookDao).execute(book);
+        new BookCreate(mBookDao).execute(book);
     }
 
-    private static class insertAsyncTask extends AsyncTask<BookEntity, Void, Void> {
-
-        private BookDao mAsyncTaskDao;
-
-        insertAsyncTask(BookDao dao) {
-            mAsyncTaskDao = dao;
-        }
-
-        @Override
-        protected Void doInBackground(final BookEntity... params) {
-            mAsyncTaskDao.insertBook(params[0]);
-            return null;
-        }
+    public void updateAutor (BookEntity book) {
+        new BookUpdate(mBookDao).execute(book);
     }
 
+    public void deleteAutor (BookEntity book) {
+        new BookDelete(mBookDao).execute(book);
+    }
 }
