@@ -31,4 +31,7 @@ public interface AutorDao {
 
     @Query("DELETE FROM autors")
     void deleteAll();
+
+    @Query("SELECT * FROM autors WHERE id =:id")
+    AutorEntity loadById(int id);
 }

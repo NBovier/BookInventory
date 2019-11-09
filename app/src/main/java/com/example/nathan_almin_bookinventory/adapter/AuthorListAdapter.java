@@ -4,13 +4,16 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.TextView;
 
+import androidx.appcompat.view.menu.MenuView;
 import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.example.nathan_almin_bookinventory.R;
 import com.example.nathan_almin_bookinventory.database.entity.AutorEntity;
+import com.example.nathan_almin_bookinventory.util.AdapterListener;
 
 import java.util.List;
 
@@ -19,11 +22,19 @@ public class AuthorListAdapter extends RecyclerView.Adapter<AuthorListAdapter.Au
     private final LayoutInflater mInflater;
     private List<AutorEntity> mAuthors; // Cached copy of words
 
-    public AuthorListAdapter(Context context) { mInflater = LayoutInflater.from(context); }
+    private final AdapterListener listener;
+
+    public AuthorListAdapter(Context context, AdapterListener listener, List<AutorEntity> data) {
+        mInflater = LayoutInflater.from(context);
+        this.listener = listener;
+        this.mAuthors = data;
+    }
 
     @Override
     public AuthorViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = mInflater.inflate(R.layout.recyclerview_item, parent, false);
+        final AuthorViewHolder viewHolder = new AuthorViewHolder(itemView);
+        itemView.setOnClickListener(view -> listener.onItemClick(view, viewHolder.getAdapterPosition()));
         return new AuthorViewHolder(itemView);
     }
 
@@ -36,6 +47,11 @@ public class AuthorListAdapter extends RecyclerView.Adapter<AuthorListAdapter.Au
             // Covers the case of data not being ready yet.
             holder.authorItemView.setText("No Word");
         }
+    }
+
+
+    public AutorEntity getItem(int position) {
+        return mAuthors.get(position);
     }
 
     public void setAuthors(List<AutorEntity> books){
@@ -52,7 +68,7 @@ public class AuthorListAdapter extends RecyclerView.Adapter<AuthorListAdapter.Au
         else return 0;
     }
 
-    class AuthorViewHolder extends RecyclerView.ViewHolder {
+    static class AuthorViewHolder extends RecyclerView.ViewHolder {
         private final TextView authorItemView;
 
         private AuthorViewHolder(View itemView) {

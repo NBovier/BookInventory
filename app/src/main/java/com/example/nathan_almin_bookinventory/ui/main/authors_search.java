@@ -5,11 +5,10 @@ import android.os.Bundle;
 
 import com.example.nathan_almin_bookinventory.R;
 import com.example.nathan_almin_bookinventory.adapter.AuthorListAdapter;
-import com.example.nathan_almin_bookinventory.adapter.BookListAdapter;
+import com.example.nathan_almin_bookinventory.adapter.RecyclerAdapter;
 import com.example.nathan_almin_bookinventory.database.entity.AutorEntity;
-import com.example.nathan_almin_bookinventory.database.entity.BookEntity;
 import com.example.nathan_almin_bookinventory.model.authorViewModel;
-import com.example.nathan_almin_bookinventory.model.bookViewModel;
+import com.example.nathan_almin_bookinventory.util.AdapterListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.annotation.Nullable;
@@ -22,11 +21,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.View;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class authors_search extends AppCompatActivity {
 
     private authorViewModel mauthorViewModel;
+
+    private List<AutorEntity> accounts;
+    private RecyclerAdapter<AutorEntity> adapter2;
+
+
+    private AdapterListener listener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +42,7 @@ public class authors_search extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerviewAut);
-        final AuthorListAdapter adapter = new AuthorListAdapter(this);
+        final AuthorListAdapter adapter = new AuthorListAdapter(this, listener, accounts);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -50,6 +56,23 @@ public class authors_search extends AppCompatActivity {
             }
         });
 
+        accounts = new ArrayList<>();
+        adapter2 = new RecyclerAdapter<>(new AdapterListener() {
+            @Override
+            public void onItemClick(View v, int position) {accounts.get(position).getAutorName();
+
+                Intent intent = new Intent(authors_search.this, author_details.class);
+                intent.putExtra("autorId", accounts.get(position).getId());
+                startActivity(intent);
+            }
+
+            @Override
+            public void onItemLongClick(View v, int position) {
+                accounts.get(position).getAutorName();
+
+            }
+        });
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +81,9 @@ public class authors_search extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        recyclerView.setAdapter(adapter);
+
     }
 
     //Open view activity_author_add

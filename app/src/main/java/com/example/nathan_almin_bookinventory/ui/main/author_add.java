@@ -23,6 +23,7 @@ public class author_add extends AppCompatActivity {
 
     Toast toast;
     Toast errorToast;
+    Toast existToast;
 
     AlertDialog alertDialog;
 
@@ -37,6 +38,7 @@ public class author_add extends AppCompatActivity {
 
         errorToast = Toast.makeText(this, "All fill must be completed", Toast.LENGTH_SHORT);
         toast= Toast.makeText(this, "Author added", Toast.LENGTH_SHORT);
+        existToast= Toast.makeText(this, "Already exist", Toast.LENGTH_SHORT);
 
         autorEntity = new AutorEntity();
 
@@ -55,7 +57,6 @@ public class author_add extends AppCompatActivity {
                     errorToast.show();
                     return;
                 }
-
                 autorEntity.setAutorName(name.getText().toString());;
 
                 autorRepository.insertAutor(autorEntity);
