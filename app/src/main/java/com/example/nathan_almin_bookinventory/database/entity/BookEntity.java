@@ -47,6 +47,12 @@ public class BookEntity {
     private int idLoc;
 
     public BookEntity(String title, String date, String summary, int idAutor, int idCategory, int idLoc) {
+        this.title = title;
+        this.date = date;
+        this.summary = summary;
+        this.idAutor = idAutor;
+        this.idCategory = idCategory;
+        this.idLoc = idLoc;
     }
 
     public int getId() {
