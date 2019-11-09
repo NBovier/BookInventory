@@ -15,13 +15,13 @@ public class CategoryRepository {
     private CategoryDao mCategoryDao;
     private LiveData<List<CategoryEntity>> mAllCategory;
 
-    CategoryRepository(Application application) {
+    public CategoryRepository(Application application) {
         LocalDatabase db = LocalDatabase.getLocalDatabase(application);
         mCategoryDao = db.categoryDao();
         mAllCategory = mCategoryDao.getAll();
     }
 
-    LiveData<List<CategoryEntity>> getAll() {
+    public LiveData<List<CategoryEntity>> getAll() {
         return mAllCategory;
     }
 

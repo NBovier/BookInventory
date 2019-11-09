@@ -17,13 +17,13 @@ public class AutorRepository {
     private AutorDao mAutorDao;
     private LiveData<List<AutorEntity>> mAllAutors;
 
-    AutorRepository(Application application) {
+    public AutorRepository(Application application) {
         LocalDatabase db = LocalDatabase.getLocalDatabase(application);
         mAutorDao = db.autorDao();
         mAllAutors = mAutorDao.getAll();
     }
 
-    LiveData<List<AutorEntity>> getAll() {
+    public LiveData<List<AutorEntity>> getAll() {
         return mAllAutors;
     }
 

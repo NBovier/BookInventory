@@ -21,7 +21,7 @@ public class ShelfLocRepository {
         mAllShelfLoc = mShelfLocDao.getAll();
     }
 
-    LiveData<List<ShelfLocEntity>> getAll() {
+    public  LiveData<List<ShelfLocEntity>> getAll() {
         return mAllShelfLoc;
     }
 
