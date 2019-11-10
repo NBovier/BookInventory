@@ -1,6 +1,8 @@
 package com.example.nathan_almin_bookinventory.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.nathan_almin_bookinventory.R;
 import com.example.nathan_almin_bookinventory.database.entity.AutorEntity;
+import com.example.nathan_almin_bookinventory.model.authorViewModel;
+import com.example.nathan_almin_bookinventory.ui.main.author_details;
 import com.example.nathan_almin_bookinventory.util.AdapterListener;
 
 import java.util.List;
@@ -22,27 +26,40 @@ public class AuthorListAdapter extends RecyclerView.Adapter<AuthorListAdapter.Au
     private final LayoutInflater mInflater;
     private List<AutorEntity> mAuthors; // Cached copy of words
 
-    private final AdapterListener listener;
+    private AdapterListener listener;
+
+    private Context mContext;
+
+    private com.example.nathan_almin_bookinventory.model.authorViewModel authorViewModel;
 
     public AuthorListAdapter(Context context, AdapterListener listener, List<AutorEntity> data) {
         mInflater = LayoutInflater.from(context);
         this.listener = listener;
         this.mAuthors = data;
+        this.mContext = context;
     }
 
     @Override
     public AuthorViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = mInflater.inflate(R.layout.recyclerview_item, parent, false);
-        final AuthorViewHolder viewHolder = new AuthorViewHolder(itemView);
-        itemView.setOnClickListener(view -> listener.onItemClick(view, viewHolder.getAdapterPosition()));
-        return new AuthorViewHolder(itemView);
+        return new AuthorViewHolder(itemView, listener);
     }
 
     @Override
     public void onBindViewHolder(AuthorListAdapter.AuthorViewHolder holder, int position) {
         if (mAuthors != null) {
-            AutorEntity current = mAuthors.get(position);
+            final AutorEntity current = mAuthors.get(position);
             holder.authorItemView.setText(current.getAutorName());
+            holder.authorItemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(mContext, author_details.class);
+                    intent.putExtra("authorName", current.getAutorName());
+                    intent.putExtra("idAuthor", current.getId());
+                    intent.putExtra("pos", position);
+                    mContext.startActivity(intent);
+                }
+            });
         } else {
             // Covers the case of data not being ready yet.
             holder.authorItemView.setText("No Word");
@@ -68,12 +85,23 @@ public class AuthorListAdapter extends RecyclerView.Adapter<AuthorListAdapter.Au
         else return 0;
     }
 
-    static class AuthorViewHolder extends RecyclerView.ViewHolder {
+    public class AuthorViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private final TextView authorItemView;
 
-        private AuthorViewHolder(View itemView) {
+        AdapterListener adapterListener;
+
+        private AuthorViewHolder(View itemView, AdapterListener adapterListener) {
             super(itemView);
             authorItemView = itemView.findViewById(R.id.textView);
+
+            this.adapterListener=adapterListener;
+
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            adapterListener.onItemClick(getAdapterPosition());
         }
     }
 }

@@ -1,6 +1,9 @@
 package com.example.nathan_almin_bookinventory.ui.main;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -13,15 +16,22 @@ import com.example.nathan_almin_bookinventory.R;
 import com.example.nathan_almin_bookinventory.database.dao.AutorDao;
 import com.example.nathan_almin_bookinventory.database.entity.AutorEntity;
 import com.example.nathan_almin_bookinventory.database.repository.AutorRepository;
+import com.example.nathan_almin_bookinventory.model.authorViewModel;
+import com.example.nathan_almin_bookinventory.util.AdapterListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class author_details extends AppCompatActivity {
 
     //Components
-    TextView autorName;
+    TextView authorName;
+    String nameAuthor;
 
     FloatingActionButton edit;
     FloatingActionButton delete;
+    FloatingActionButton save;
 
     Toast errorToast;
     Toast deleteToast;
@@ -31,14 +41,26 @@ public class author_details extends AppCompatActivity {
     AutorDao autorDao;
     AutorEntity autorEntity;
 
+    private authorViewModel mauthorViewModel;
+
+    private List<AutorEntity> mAuthors;
+
+    @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_author_details);
 
-        autorName = findViewById(R.id.tv_details_author_Showfirstname);
+        authorName = findViewById(R.id.tv_details_author_Showfirstname);
         edit = findViewById(R.id.editButton);
         delete = findViewById(R.id.deleteButton);
+        save = findViewById(R.id.saveButton);
+
+        save.setVisibility(View.INVISIBLE);
+
+        authorName.setEnabled(false);
+
+        autorEntity = new AutorEntity();
 
         // instance of toast
         doneToast = Toast.makeText(this, "Author saved", Toast.LENGTH_SHORT);
@@ -46,24 +68,29 @@ public class author_details extends AppCompatActivity {
         deleteToast = Toast.makeText(this, "Author deleted", Toast.LENGTH_SHORT);
 
         //get idAuthor from previous activity
-        int idAuthor = getIntent().getIntExtra("idAutor", -1);
+        int idAuthor = getIntent().getIntExtra("idAuthor",+0);
+        nameAuthor = getIntent().getStringExtra("authorName");
+        int position = getIntent().getIntExtra("pos", +0);
 
-        autorEntity = autorDao.loadById(autorEntity.getId());
+        authorName.setText(nameAuthor);
+        mauthorViewModel = ViewModelProviders.of(this).get(authorViewModel.class);
 
-        autorName.setText(autorEntity.getAutorName());
-        autorName.setEnabled(false);
+        mauthorViewModel.getAll().observe(this, new Observer<List<AutorEntity>>() {
+            @Override
+            public void onChanged(@Nullable List<AutorEntity> authors) {
+                mAuthors = authors;
+            }
+        });
 
         //set the listener to switch in edit mode
         edit.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("RestrictedApi")
             @Override
             public void onClick(View v) {
+                authorName.setEnabled(true);
+                delete.setVisibility(View.INVISIBLE);
+                save.setVisibility(View.VISIBLE);
 
-                delete.setVisibility(v.INVISIBLE);
-
-                edit.setEnabled(false);
-
-                autorName.setEnabled(true);
             }
         });
 
@@ -71,9 +98,25 @@ public class author_details extends AppCompatActivity {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                autorRepository.deleteAutor(autorEntity);
+                autorEntity = mAuthors.get(position);
+                mauthorViewModel.deleteAuthor(autorEntity);
                 deleteToast.show();
                 onBackPressed();
+            }
+        });
+
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                autorEntity = mAuthors.get(position);
+                if(authorName.getText().toString().isEmpty()){
+                    errorToast.show();
+                }else {
+                    autorEntity.setAutorName(authorName.getText().toString());
+                    mauthorViewModel.updateAuthor(autorEntity);
+                    doneToast.show();
+                    onBackPressed();
+                }
             }
         });
 

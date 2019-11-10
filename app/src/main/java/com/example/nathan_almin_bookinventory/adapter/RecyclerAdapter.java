@@ -18,8 +18,9 @@ import com.example.nathan_almin_bookinventory.util.AdapterListener;
 import java.util.List;
 import java.util.Objects;
 
-public class RecyclerAdapter<T> extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
+public class RecyclerAdapter<T> /*extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder>*/ {
 
+    /*
     private List<T> mData;
     private AdapterListener mListener;
 
@@ -119,4 +120,6 @@ public class RecyclerAdapter<T> extends RecyclerView.Adapter<RecyclerAdapter.Vie
             result.dispatchUpdatesTo(this);
         }
     }
+
+     */
 }

@@ -25,7 +25,7 @@
             android:textColor="@color/colorPrimaryDark"
             android:textSize="20sp" />
 
-        <TextView
+        <EditText
             android:id="@+id/tv_details_author_Showfirstname"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -35,7 +35,8 @@
             android:layout_marginLeft="191dp"
             android:layout_marginTop="35dp"
             android:textSize="20sp"
-            android:layout_below="@+id/tv_details_author_firstname" />
+            android:layout_below="@+id/tv_details_author_firstname"
+            android:background="@android:color/transparent"/>
 
         <!--
         <TextView
@@ -139,6 +140,15 @@
             android:layout_alignParentBottom="true"
             android:clickable="true"
             android:src="@android:drawable/ic_menu_delete" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/saveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:clickable="true"
+            android:src="@android:drawable/ic_menu_upload" />
 
     </RelativeLayout>
 

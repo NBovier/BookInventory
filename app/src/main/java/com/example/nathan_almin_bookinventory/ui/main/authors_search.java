@@ -19,17 +19,18 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Parcelable;
 import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class authors_search extends AppCompatActivity {
+public class authors_search extends AppCompatActivity implements AdapterListener{
 
     private authorViewModel mauthorViewModel;
 
-    private List<AutorEntity> accounts;
-    private RecyclerAdapter<AutorEntity> adapter2;
+    private List<AutorEntity> mAuthors;
+    //private RecyclerAdapter<AutorEntity> adapter2;
 
 
     private AdapterListener listener;
@@ -42,7 +43,7 @@ public class authors_search extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerviewAut);
-        final AuthorListAdapter adapter = new AuthorListAdapter(this, listener, accounts);
+        final AuthorListAdapter adapter = new AuthorListAdapter(this, listener, mAuthors);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -50,12 +51,14 @@ public class authors_search extends AppCompatActivity {
 
         mauthorViewModel.getAll().observe(this, new Observer<List<AutorEntity>>() {
             @Override
-            public void onChanged(@Nullable final List<AutorEntity> authors) {
+            public void onChanged(@Nullable List<AutorEntity> authors) {
+                mAuthors = authors;
                 // Update the cached copy of the words in the adapter.
-                adapter.setAuthors(authors);
+                adapter.setAuthors(mAuthors);
             }
         });
 
+        /*
         accounts = new ArrayList<>();
         adapter2 = new RecyclerAdapter<>(new AdapterListener() {
             @Override
@@ -72,6 +75,8 @@ public class authors_search extends AppCompatActivity {
 
             }
         });
+
+         */
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -92,4 +97,11 @@ public class authors_search extends AppCompatActivity {
         startActivity(intent);
     }
 
+    @Override
+    public void onItemClick(int position) {
+        mAuthors.get(position);
+        Intent intent = new Intent(this, author_details.class);
+        intent.putExtra("author", (Parcelable) mAuthors.get(position));
+        startActivity(intent);
+    }
 }
