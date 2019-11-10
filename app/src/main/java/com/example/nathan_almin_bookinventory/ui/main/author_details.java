@@ -64,11 +64,10 @@ public class author_details extends AppCompatActivity {
 
         // instance of toast
         doneToast = Toast.makeText(this, "Author saved", Toast.LENGTH_SHORT);
-        errorToast = Toast.makeText(this, "All filed must be complete", Toast.LENGTH_SHORT);
+        errorToast = Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT);
         deleteToast = Toast.makeText(this, "Author deleted", Toast.LENGTH_SHORT);
 
         //get idAuthor from previous activity
-        int idAuthor = getIntent().getIntExtra("idAuthor",+0);
         nameAuthor = getIntent().getStringExtra("authorName");
         int position = getIntent().getIntExtra("pos", +0);
 

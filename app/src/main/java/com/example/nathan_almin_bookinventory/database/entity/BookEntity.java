@@ -13,13 +13,18 @@ import java.util.Date;
                 @ForeignKey(
                         entity = CategoryEntity.class, parentColumns = "id", childColumns = "idCategory", onDelete = ForeignKey.CASCADE),
                 @ForeignKey(
-                        entity = AutorEntity.class, parentColumns = "id", childColumns = "idAutor", onDelete = ForeignKey.CASCADE)},
+                        entity = AutorEntity.class, parentColumns = "id", childColumns = "idAutor", onDelete = ForeignKey.CASCADE),
+                @ForeignKey(
+                        entity = ShelfLocEntity.class, parentColumns = "id", childColumns = "idLoc", onDelete = ForeignKey.CASCADE)},
         indices = {
                 @Index(
                         value = {"idAutor"}
                 ),
                 @Index(
                         value = {"idCategory"}
+                ),
+                @Index(
+                        value = {"idLoc"}
                 )}
 )
 public class BookEntity {

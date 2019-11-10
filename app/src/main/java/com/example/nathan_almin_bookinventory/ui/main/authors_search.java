@@ -25,7 +25,7 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
-public class authors_search extends AppCompatActivity implements AdapterListener{
+public class authors_search extends AppCompatActivity{
 
     private authorViewModel mauthorViewModel;
 
@@ -96,7 +96,7 @@ public class authors_search extends AppCompatActivity implements AdapterListener
         Intent intent = new Intent(this, author_add.class);
         startActivity(intent);
     }
-
+/*
     @Override
     public void onItemClick(int position) {
         mAuthors.get(position);
@@ -104,4 +104,6 @@ public class authors_search extends AppCompatActivity implements AdapterListener
         intent.putExtra("author", (Parcelable) mAuthors.get(position));
         startActivity(intent);
     }
+
+ */
 }

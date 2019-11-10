@@ -8,6 +8,7 @@ import com.example.nathan_almin_bookinventory.adapter.BookListAdapter;
 import com.example.nathan_almin_bookinventory.database.entity.BookEntity;
 import com.example.nathan_almin_bookinventory.database.repository.BookRepository;
 import com.example.nathan_almin_bookinventory.model.bookViewModel;
+import com.example.nathan_almin_bookinventory.util.AdapterListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -31,6 +32,10 @@ public class books_search extends AppCompatActivity {
 
     private bookViewModel mbookViewModel;
 
+    private List<BookEntity> mBooks;
+
+    private AdapterListener listener;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +45,7 @@ public class books_search extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
-        final BookListAdapter adapter = new BookListAdapter(this);
+        final BookListAdapter adapter = new BookListAdapter(this, listener, mBooks);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -49,6 +54,7 @@ public class books_search extends AppCompatActivity {
         mbookViewModel.getAll().observe(this, new Observer<List<BookEntity>>() {
             @Override
             public void onChanged(@Nullable final List<BookEntity> books) {
+                mBooks = books;
                 // Update the cached copy of the words in the adapter.
                 adapter.setBooks(books);
             }
@@ -62,6 +68,8 @@ public class books_search extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        recyclerView.setAdapter(adapter);
 
     }
 

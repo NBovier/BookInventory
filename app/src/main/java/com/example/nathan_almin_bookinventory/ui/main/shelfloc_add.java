@@ -43,7 +43,7 @@ public class shelfloc_add extends AppCompatActivity {
         block = findViewById(R.id.et_add_shelfloc_block);
         shelfNumber = findViewById(R.id.et_add_shelfloc_shelnumber);
 
-        errorToast = Toast.makeText(this, "All fill must be completed", Toast.LENGTH_SHORT);
+        errorToast = Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT);
         toast= Toast.makeText(this, "Shelflocation added", Toast.LENGTH_SHORT);
 
         shelfLocEntity = new ShelfLocEntity();

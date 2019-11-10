@@ -37,7 +37,7 @@ public class category_add extends AppCompatActivity {
         add = findViewById(R.id.validateButtonCat);
         name = findViewById(R.id.et_add_category_name);
 
-        errorToast = Toast.makeText(this, "All fill must be completed", Toast.LENGTH_SHORT);
+        errorToast = Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT);
         toast= Toast.makeText(this, "Category added", Toast.LENGTH_SHORT);
 
         categoryEntity = new CategoryEntity();

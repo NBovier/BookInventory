@@ -36,7 +36,7 @@ public class author_add extends AppCompatActivity {
         add = findViewById(R.id.validateButtonAut);
         name = findViewById(R.id.et_add_author_name);
 
-        errorToast = Toast.makeText(this, "All fill must be completed", Toast.LENGTH_SHORT);
+        errorToast = Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT);
         toast= Toast.makeText(this, "Author added", Toast.LENGTH_SHORT);
         existToast= Toast.makeText(this, "Already exist", Toast.LENGTH_SHORT);
 

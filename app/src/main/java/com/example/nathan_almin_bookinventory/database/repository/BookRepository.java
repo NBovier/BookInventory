@@ -32,11 +32,11 @@ public class BookRepository {
         new BookCreate(mBookDao).execute(book);
     }
 
-    public void updateAutor (BookEntity book) {
+    public void updateBook (BookEntity book) {
         new BookUpdate(mBookDao).execute(book);
     }
 
-    public void deleteAutor (BookEntity book) {
+    public void deleteBook (BookEntity book) {
         new BookDelete(mBookDao).execute(book);
     }
 }

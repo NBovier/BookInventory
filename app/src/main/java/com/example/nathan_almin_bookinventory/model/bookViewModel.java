@@ -5,6 +5,7 @@ import android.app.Application;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import com.example.nathan_almin_bookinventory.database.entity.AutorEntity;
 import com.example.nathan_almin_bookinventory.database.entity.BookEntity;
 import com.example.nathan_almin_bookinventory.database.repository.BookRepository;
 
@@ -25,4 +26,12 @@ public class bookViewModel  extends AndroidViewModel {
     public LiveData<List<BookEntity>> getAll() { return mAllBooks; }
 
     public void insert(BookEntity book) { mRepository.insertBook(book); }
+
+    public void deleteBook(BookEntity book) {
+        mRepository.deleteBook(book);
+    }
+
+    public void updateBook(BookEntity book) {
+        mRepository.updateBook(book);
+    }
 }

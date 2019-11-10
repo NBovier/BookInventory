@@ -27,6 +27,7 @@
 
         <EditText
             android:id="@+id/tv_details_author_Showfirstname"
+            android:maxLines="1"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_alignParentEnd="true"

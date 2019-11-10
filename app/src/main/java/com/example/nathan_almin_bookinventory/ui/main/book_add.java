@@ -39,6 +39,7 @@ public class book_add extends AppCompatActivity {
     EditText date;
     Spinner author;
     Spinner category;
+    Spinner loc;
     EditText summary;
 
     BookEntity bookEntity;
@@ -60,8 +61,9 @@ public class book_add extends AppCompatActivity {
         author = findViewById(R.id.sp_add_book_author);
         category = findViewById(R.id.sp_add_book_categorie);
         summary = findViewById(R.id.et_add_book_summary);
+        loc = findViewById(R.id.sp_add_book_loc);
 
-        errorToast = Toast.makeText(this, "All fill must be completed", Toast.LENGTH_SHORT);
+        errorToast = Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT);
         toast= Toast.makeText(this, "Book added", Toast.LENGTH_SHORT);
 
         bookEntity = new BookEntity();
@@ -79,6 +81,7 @@ public class book_add extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         author.setAdapter(adapter);
         category.setAdapter(adapter);
+        loc.setAdapter(adapter);
 
 
         //Config button Add
@@ -92,7 +95,8 @@ public class book_add extends AppCompatActivity {
                         date.getText().toString().isEmpty() ||
                         author.getSelectedItem().toString().isEmpty() ||
                         category.getSelectedItem().toString().isEmpty() ||
-                        summary.getText().toString().isEmpty() ) {
+                        summary.getText().toString().isEmpty() ||
+                        loc.getSelectedItem().toString().isEmpty() ){
                     errorToast.show();
                     return;
                 }
@@ -102,6 +106,7 @@ public class book_add extends AppCompatActivity {
                 bookEntity.setIdAutor(Integer.parseInt(author.getSelectedItem().toString()));
                 bookEntity.setIdCategory(Integer.parseInt(category.getSelectedItem().toString()));
                 bookEntity.setSummary(summary.getText().toString());
+                bookEntity.setIdLoc(Integer.parseInt(loc.getSelectedItem().toString()));
 
                 bookRepository.insertBook(bookEntity);
 

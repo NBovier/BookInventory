@@ -17,7 +17,7 @@ import com.example.nathan_almin_bookinventory.database.entity.BookEntity;
 import com.example.nathan_almin_bookinventory.database.entity.CategoryEntity;
 import com.example.nathan_almin_bookinventory.database.entity.ShelfLocEntity;
 
-@Database(entities = {AutorEntity.class, BookEntity.class, CategoryEntity.class, ShelfLocEntity.class}, version = 1)
+@Database(entities = {AutorEntity.class, BookEntity.class, CategoryEntity.class, ShelfLocEntity.class}, version = 2)
 public abstract class LocalDatabase extends RoomDatabase {
 
     private static LocalDatabase INSTANCE;
