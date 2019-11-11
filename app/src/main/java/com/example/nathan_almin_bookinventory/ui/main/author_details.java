@@ -37,8 +37,6 @@ public class author_details extends AppCompatActivity {
     Toast deleteToast;
     Toast doneToast;
 
-    AutorRepository autorRepository;
-    AutorDao autorDao;
     AutorEntity autorEntity;
 
     private authorViewModel mauthorViewModel;

@@ -15,9 +15,14 @@ import com.example.nathan_almin_bookinventory.database.entity.BookEntity;
 import java.util.List;
 
 public class BookRepository {
+    //Components
     private BookDao mBookDao;
     private LiveData<List<BookEntity>> mAllBooks;
 
+    /**
+     * Constructor
+     * @param application
+     */
     public BookRepository(Application application) {
         LocalDatabase db = LocalDatabase.getLocalDatabase(application);
         mBookDao = db.bookDao();

@@ -15,9 +15,14 @@ import com.example.nathan_almin_bookinventory.database.entity.CategoryEntity;
 import java.util.List;
 
 public class CategoryRepository {
+    //Components
     private CategoryDao mCategoryDao;
     private LiveData<List<CategoryEntity>> mAllCategory;
 
+    /**
+     * Constructor
+     * @param application
+     */
     public CategoryRepository(Application application) {
         LocalDatabase db = LocalDatabase.getLocalDatabase(application);
         mCategoryDao = db.categoryDao();

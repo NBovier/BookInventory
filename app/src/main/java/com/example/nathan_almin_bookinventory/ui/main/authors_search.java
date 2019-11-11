@@ -5,7 +5,6 @@ import android.os.Bundle;
 
 import com.example.nathan_almin_bookinventory.R;
 import com.example.nathan_almin_bookinventory.adapter.AuthorListAdapter;
-import com.example.nathan_almin_bookinventory.adapter.RecyclerAdapter;
 import com.example.nathan_almin_bookinventory.database.entity.AutorEntity;
 import com.example.nathan_almin_bookinventory.model.authorViewModel;
 import com.example.nathan_almin_bookinventory.util.AdapterListener;
@@ -19,10 +18,8 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Parcelable;
 import android.view.View;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class authors_search extends AppCompatActivity{
@@ -30,8 +27,6 @@ public class authors_search extends AppCompatActivity{
     private authorViewModel mauthorViewModel;
 
     private List<AutorEntity> mAuthors;
-    //private RecyclerAdapter<AutorEntity> adapter2;
-
 
     private AdapterListener listener;
 
@@ -58,26 +53,6 @@ public class authors_search extends AppCompatActivity{
             }
         });
 
-        /*
-        accounts = new ArrayList<>();
-        adapter2 = new RecyclerAdapter<>(new AdapterListener() {
-            @Override
-            public void onItemClick(View v, int position) {accounts.get(position).getAutorName();
-
-                Intent intent = new Intent(authors_search.this, author_details.class);
-                intent.putExtra("autorId", accounts.get(position).getId());
-                startActivity(intent);
-            }
-
-            @Override
-            public void onItemLongClick(View v, int position) {
-                accounts.get(position).getAutorName();
-
-            }
-        });
-
-         */
-
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,14 +71,4 @@ public class authors_search extends AppCompatActivity{
         Intent intent = new Intent(this, author_add.class);
         startActivity(intent);
     }
-/*
-    @Override
-    public void onItemClick(int position) {
-        mAuthors.get(position);
-        Intent intent = new Intent(this, author_details.class);
-        intent.putExtra("author", (Parcelable) mAuthors.get(position));
-        startActivity(intent);
-    }
-
- */
 }

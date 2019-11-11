@@ -14,9 +14,14 @@ import com.example.nathan_almin_bookinventory.database.entity.AutorEntity;
 import java.util.List;
 
 public class AutorRepository {
+    //Components
     private AutorDao mAutorDao;
     private LiveData<List<AutorEntity>> mAllAutors;
 
+    /**
+     * Constructor
+     * @param application
+     */
     public AutorRepository(Application application) {
         LocalDatabase db = LocalDatabase.getLocalDatabase(application);
         mAutorDao = db.autorDao();

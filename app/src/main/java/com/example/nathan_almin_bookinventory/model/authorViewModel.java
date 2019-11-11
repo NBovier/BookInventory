@@ -5,7 +5,6 @@ import android.app.Application;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.example.nathan_almin_bookinventory.database.async.AutorDelete;
 import com.example.nathan_almin_bookinventory.database.entity.AutorEntity;
 import com.example.nathan_almin_bookinventory.database.repository.AutorRepository;
 
@@ -17,6 +16,10 @@ public class authorViewModel extends AndroidViewModel {
 
     private LiveData<List<AutorEntity>> mAllAuthors;
 
+    /**
+     * Constructor
+     * @param application
+     */
     public authorViewModel (Application application) {
         super(application);
         mRepository = new AutorRepository(application);

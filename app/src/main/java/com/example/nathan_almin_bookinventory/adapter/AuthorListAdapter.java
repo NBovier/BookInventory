@@ -2,27 +2,28 @@ package com.example.nathan_almin_bookinventory.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.TextView;
-
-import androidx.appcompat.view.menu.MenuView;
 import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.example.nathan_almin_bookinventory.R;
 import com.example.nathan_almin_bookinventory.database.entity.AutorEntity;
-import com.example.nathan_almin_bookinventory.model.authorViewModel;
 import com.example.nathan_almin_bookinventory.ui.main.author_details;
 import com.example.nathan_almin_bookinventory.util.AdapterListener;
 
 import java.util.List;
 
+/**
+ * AuthorListAdapter est une classe que nous utilisons pour l'affichage des auteurs
+ * extends RecyclerView
+ */
+
 public class AuthorListAdapter extends RecyclerView.Adapter<AuthorListAdapter.AuthorViewHolder> {
 
+    //Components
     private final LayoutInflater mInflater;
     private List<AutorEntity> mAuthors; // Cached copy of words
 
@@ -30,7 +31,12 @@ public class AuthorListAdapter extends RecyclerView.Adapter<AuthorListAdapter.Au
 
     private Context mContext;
 
-    private com.example.nathan_almin_bookinventory.model.authorViewModel authorViewModel;
+    /**
+     * Constructor of AuthorListAdapter
+     * @param context
+     * @param listener
+     * @param data
+     */
 
     public AuthorListAdapter(Context context, AdapterListener listener, List<AutorEntity> data) {
         mInflater = LayoutInflater.from(context);
@@ -38,6 +44,10 @@ public class AuthorListAdapter extends RecyclerView.Adapter<AuthorListAdapter.Au
         this.mAuthors = data;
         this.mContext = context;
     }
+
+    /*
+    Personnalize Holder
+     */
 
     @Override
     public AuthorViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -50,6 +60,7 @@ public class AuthorListAdapter extends RecyclerView.Adapter<AuthorListAdapter.Au
         if (mAuthors != null) {
             final AutorEntity current = mAuthors.get(position);
             holder.authorItemView.setText(current.getAutorName());
+            //Action onClick
             holder.authorItemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -66,11 +77,9 @@ public class AuthorListAdapter extends RecyclerView.Adapter<AuthorListAdapter.Au
         }
     }
 
-
-    public AutorEntity getItem(int position) {
-        return mAuthors.get(position);
-    }
-
+    /*
+    Méthode utilisé pour modifier la liste des auteurs
+     */
     public void setAuthors(List<AutorEntity> books){
         mAuthors = books;
         notifyDataSetChanged();
@@ -85,11 +94,20 @@ public class AuthorListAdapter extends RecyclerView.Adapter<AuthorListAdapter.Au
         else return 0;
     }
 
+    //Classe Holder qui extend ViewHolder et implements OnClickListener
+    //Nous avons décidé de la mettre directement dans la classe AuthorListAdapter
     public class AuthorViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+
+        //Components
         private final TextView authorItemView;
 
         AdapterListener adapterListener;
 
+        /**
+         * Constructor
+         * @param itemView
+         * @param adapterListener
+         */
         private AuthorViewHolder(View itemView, AdapterListener adapterListener) {
             super(itemView);
             authorItemView = itemView.findViewById(R.id.textView);

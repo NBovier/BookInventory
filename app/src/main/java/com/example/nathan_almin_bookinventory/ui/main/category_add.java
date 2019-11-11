@@ -52,7 +52,7 @@ public class category_add extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //Check if all field are filled
+                //Check if all field are completed
                 if(name.getText().toString().isEmpty()) {
                     errorToast.show();
                     return;

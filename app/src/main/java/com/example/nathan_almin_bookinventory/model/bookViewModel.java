@@ -17,6 +17,10 @@ public class bookViewModel  extends AndroidViewModel {
 
     private LiveData<List<BookEntity>> mAllBooks;
 
+    /**
+     * Constructor
+     * @param application
+     */
     public bookViewModel (Application application) {
         super(application);
         mRepository = new BookRepository(application);

@@ -6,6 +6,12 @@ import android.util.Log;
 import com.example.nathan_almin_bookinventory.database.dao.BookDao;
 import com.example.nathan_almin_bookinventory.database.entity.BookEntity;
 
+
+/*
+USE JUST AT FIRST TO INITIALIZE THE DB
+
+WE CAN DO IT BY INSERT NEW BOOKS, AUTHORS, SHELFLOCATIONS, CATEGORIES;
+ */
 class PopulateDbAsync extends AsyncTask<Void, Void, Void> {
 
     public static void populateDatabase(final LocalDatabase db) {

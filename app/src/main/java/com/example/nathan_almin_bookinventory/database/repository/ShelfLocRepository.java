@@ -14,9 +14,14 @@ import com.example.nathan_almin_bookinventory.database.entity.ShelfLocEntity;
 import java.util.List;
 
 public class ShelfLocRepository {
+    //Components
     private ShelfLocDao mShelfLocDao;
     private LiveData<List<ShelfLocEntity>> mAllShelfLoc;
 
+    /**
+     * Constructor
+     * @param application
+     */
     public ShelfLocRepository(Application application) {
         LocalDatabase db = LocalDatabase.getLocalDatabase(application);
         mShelfLocDao = db.shelfLocDao();

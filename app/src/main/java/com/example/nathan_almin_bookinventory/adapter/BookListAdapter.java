@@ -16,8 +16,13 @@ import com.example.nathan_almin_bookinventory.util.AdapterListener;
 
 import java.util.List;
 
+/**
+ * Classe BookListAdapter extends RecyclerView
+ * Utilisée pour l'affichage des livres
+ */
 public class BookListAdapter  extends RecyclerView.Adapter<BookListAdapter.BookViewHolder> {
 
+    //Components
     private final LayoutInflater mInflater;
     private List<BookEntity> mBooks; // Cached copy of words
 
@@ -25,6 +30,12 @@ public class BookListAdapter  extends RecyclerView.Adapter<BookListAdapter.BookV
 
     private Context mContext;
 
+    /**
+     * Constructor
+     * @param context
+     * @param listener
+     * @param data
+     */
     public BookListAdapter(Context context, AdapterListener listener, List<BookEntity> data) {
         mInflater = LayoutInflater.from(context);
         this.listener = listener;
@@ -32,6 +43,9 @@ public class BookListAdapter  extends RecyclerView.Adapter<BookListAdapter.BookV
         this.mContext = context;
     }
 
+    /*
+    Holder perso
+     */
     @Override
     public BookViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = mInflater.inflate(R.layout.recyclerview_item, parent, false);
@@ -46,6 +60,7 @@ public class BookListAdapter  extends RecyclerView.Adapter<BookListAdapter.BookV
             holder.bookItemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    //send DATA
                     Intent intent = new Intent(mContext, book_details.class);
                     intent.putExtra("title", current.getTitle());
                     intent.putExtra("date", current.getDate());
@@ -63,6 +78,9 @@ public class BookListAdapter  extends RecyclerView.Adapter<BookListAdapter.BookV
         }
     }
 
+    /*
+    méthodes qui va mettre à jour la liste des livres
+     */
     public void setBooks(List<BookEntity> books){
         mBooks = books;
         notifyDataSetChanged();
@@ -77,6 +95,7 @@ public class BookListAdapter  extends RecyclerView.Adapter<BookListAdapter.BookV
         else return 0;
     }
 
+    //class HolderPerso
     class BookViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private final TextView bookItemView;
 
