@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "275716158662",
+    "firebase_url": "https://bookinventory-hes.firebaseio.com",
+    "project_id": "bookinventory-hes",
+    "storage_bucket": "bookinventory-hes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:275716158662:android:a8a40ecd41296c1f3d93c7",
+        "android_client_info": {
+          "package_name": "com.example.nathan_almin_bookinventory"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "275716158662-imie1l8nv86cfsoaiki6c00hj5421gle.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOzDtvrKqfv1XGtq3Jglpn3CCtEjXL_ZU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "275716158662-imie1l8nv86cfsoaiki6c00hj5421gle.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
