@@ -52,7 +52,7 @@
             app:srcCompat="@drawable/shelfloc_manage"
             tools:ignore="VectorDrawableCompat" />
 
-        <ImageButton
+       <!-- <ImageButton
             android:id="@+id/buttonCategory"
             android:layout_width="match_parent"
             android:layout_height="130dp"
@@ -61,7 +61,16 @@
             android:onClick="showCategory"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/category_manage"
-            tools:ignore="VectorDrawableCompat" />
+            tools:ignore="VectorDrawableCompat" />-->
+        <ImageButton
+        android:id="@+id/buttonCategory"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="Category_Management"
+        android:onClick="showCategory"
+        android:scaleType="fitCenter"
+        tools:ignore="VectorDrawableCompat" />
     </LinearLayout>
 
 

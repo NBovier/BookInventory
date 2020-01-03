@@ -5,19 +5,55 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import com.example.nathan_almin_bookinventory.database.async.CategoryCreate;
+import com.google.firebase.firestore.Exclude;
 
-@Entity(tableName = "categories")
+import java.util.HashMap;
+import java.util.Map;
+
 public class CategoryEntity {
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "id")
+
+
+    /*
+        @PrimaryKey(autoGenerate = true)
+        @ColumnInfo(name = "id")
+        private int id;
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public String getCatName() {
+            return catName;
+        }
+
+        public void setCatName(String catName) {
+            this.catName = catName;
+        }
+
+        @ColumnInfo(name = "catName")
+        private String catName;
+
+    /*
+        public CategoryEntity(int id, String catName) {
+            this.id = id;
+            this.catName = catName;
+        }
+
+     */
+    private String catName;
     private int id;
 
-    public int getId() {
-        return id;
+    public CategoryEntity() {
+
     }
 
-    public void setId(int id) {
+    public CategoryEntity(int id, String catName) {
         this.id = id;
+        this.catName = catName;
     }
 
     public String getCatName() {
@@ -28,14 +64,19 @@ public class CategoryEntity {
         this.catName = catName;
     }
 
-    @ColumnInfo(name = "catName")
-    private String catName;
-
-/*
-    public CategoryEntity(int id, String catName) {
-        this.id = id;
-        this.catName = catName;
+    public int getId() {
+        return id;
     }
 
- */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Exclude
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("id", id);
+        result.put("catName", catName);
+        return result;
+    }
 }

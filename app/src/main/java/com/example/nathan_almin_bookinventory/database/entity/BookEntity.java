@@ -5,9 +5,13 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.ForeignKey;
 import androidx.room.Index;
+import com.google.firebase.firestore.Exclude;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import java.util.Date;
-
+/*
 @Entity(tableName = "books",
         foreignKeys ={
                 @ForeignKey(
@@ -26,9 +30,9 @@ import java.util.Date;
                 @Index(
                         value = {"idLoc"}
                 )}
-)
+)*/
 public class BookEntity {
-
+    /*
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     private int id;
@@ -51,16 +55,6 @@ public class BookEntity {
     @ColumnInfo(name = "idLoc")
     private int idLoc;
 
-    /*
-    public BookEntity(String title, String date, String summary, int idAutor, int idCategory, int idLoc) {
-        this.title = title;
-        this.date = date;
-        this.summary = summary;
-        this.idAutor = idAutor;
-        this.idCategory = idCategory;
-        this.idLoc = idLoc;
-    }
-    */
 
     public int getId() {
         return id;
@@ -116,5 +110,94 @@ public class BookEntity {
 
     public void setIdLoc(int idLoc) {
         this.idLoc = idLoc;
+    }
+*/
+    private int id;
+    private String title;
+    private String date;
+    private String summary;
+    private int idCategory;
+    private int idAutor;
+    private int idLoc;
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    public int getIdCategory() {
+        return idCategory;
+    }
+
+    public void setIdCategory(int idCategory) {
+        this.idCategory = idCategory;
+    }
+
+    public int getIdAutor() {
+        return idAutor;
+    }
+
+    public void setIdAutor(int idAutor) {
+        this.idAutor = idAutor;
+    }
+
+    public int getIdLoc() {
+        return idLoc;
+    }
+
+    public void setIdLoc(int idLoc) {
+        this.idLoc = idLoc;
+    }
+    public BookEntity() {
+    }
+
+
+    public BookEntity(String title, String date, String summary, int idAutor, int idCategory, int idLoc) {
+        this.title = title;
+        this.date = date;
+        this.summary = summary;
+        this.idAutor = idAutor;
+        this.idCategory = idCategory;
+        this.idLoc = idLoc;
+    }
+
+    @Exclude
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("title", title);
+        result.put("date", date);
+        result.put("summary", summary);
+        result.put("idAutor", idAutor);
+        result.put("idCategory", idCategory);
+        result.put("idLoc", idLoc);
+        return result;
     }
 }
