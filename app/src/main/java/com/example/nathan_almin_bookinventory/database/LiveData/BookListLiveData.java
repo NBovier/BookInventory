@@ -5,7 +5,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 
-import com.example.nathan_almin_bookinventory.database.entity.AutorEntity;
+import com.example.nathan_almin_bookinventory.database.entity.BookEntity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -14,12 +14,12 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AutorListLiveData extends LiveData<List<AutorEntity>>  {
-    private static final String TAG = "AutorLiveData";
+public class BookListLiveData extends LiveData<List<BookEntity>> {
+    private static final String TAG = "BookLiveData";
     private final DatabaseReference reference;
-    private final MyValueEventListener listener = new MyValueEventListener();
+    private final BookListLiveData.MyValueEventListener listener = new BookListLiveData.MyValueEventListener();
 
-    public AutorListLiveData(DatabaseReference ref) {
+    public BookListLiveData(DatabaseReference ref) {
         reference = ref;
     }
 
@@ -37,7 +37,7 @@ public class AutorListLiveData extends LiveData<List<AutorEntity>>  {
     private class MyValueEventListener implements ValueEventListener {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-            setValue(toAutorList(dataSnapshot));
+            setValue(toBookList(dataSnapshot));
         }
 
         @Override
@@ -46,13 +46,13 @@ public class AutorListLiveData extends LiveData<List<AutorEntity>>  {
         }
     }
 
-    private List<AutorEntity> toAutorList(DataSnapshot snapshot) {
-        List<AutorEntity> autors = new ArrayList<>();
+    private List<BookEntity> toBookList(DataSnapshot snapshot) {
+        List<BookEntity> books = new ArrayList<>();
         for (DataSnapshot childSnapshot : snapshot.getChildren()) {
-            AutorEntity entity = childSnapshot.getValue(AutorEntity.class);
+            BookEntity entity = childSnapshot.getValue(BookEntity.class);
             entity.setId(Integer.parseInt(childSnapshot.getKey()));
-            autors.add(entity);
+            books.add(entity);
         }
-        return autors;
+        return books;
     }
 }
