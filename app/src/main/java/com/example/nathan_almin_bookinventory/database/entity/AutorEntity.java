@@ -21,7 +21,6 @@ public class AutorEntity {
         this.autorName = autorName;
     }
 
-    @Exclude
     public int getId() {
         return id;
     }
