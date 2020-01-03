@@ -8,10 +8,6 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import com.example.nathan_almin_bookinventory.database.dao.AutorDao;
-import com.example.nathan_almin_bookinventory.database.dao.BookDao;
-import com.example.nathan_almin_bookinventory.database.dao.CategoryDao;
-import com.example.nathan_almin_bookinventory.database.dao.ShelfLocDao;
 import com.example.nathan_almin_bookinventory.database.entity.AutorEntity;
 import com.example.nathan_almin_bookinventory.database.entity.BookEntity;
 import com.example.nathan_almin_bookinventory.database.entity.CategoryEntity;
@@ -24,12 +20,6 @@ public abstract class LocalDatabase extends RoomDatabase {
 
     /* For Singleton instantiation */
     //private static final Object LOCK = new Object();
-
-    public abstract AutorDao autorDao();
-    public abstract CategoryDao categoryDao();
-    public abstract ShelfLocDao shelfLocDao();
-    public abstract BookDao bookDao();
-
 
     public synchronized static LocalDatabase getLocalDatabase(Context context) {
         if (INSTANCE == null) {

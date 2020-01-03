@@ -13,7 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.nathan_almin_bookinventory.R;
-import com.example.nathan_almin_bookinventory.database.dao.AutorDao;
 import com.example.nathan_almin_bookinventory.database.entity.AutorEntity;
 import com.example.nathan_almin_bookinventory.database.repository.AutorRepository;
 import com.example.nathan_almin_bookinventory.model.authorViewModel;

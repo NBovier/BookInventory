@@ -19,7 +19,6 @@ import android.widget.Toast;
 
 import com.example.nathan_almin_bookinventory.R;
 import com.example.nathan_almin_bookinventory.database.LocalDatabase;
-import com.example.nathan_almin_bookinventory.database.dao.AutorDao;
 import com.example.nathan_almin_bookinventory.database.dao.BookDao;
 import com.example.nathan_almin_bookinventory.database.dao.CategoryDao;
 import com.example.nathan_almin_bookinventory.database.dao.ShelfLocDao;
