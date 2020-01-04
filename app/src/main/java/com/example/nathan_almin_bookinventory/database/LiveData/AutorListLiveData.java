@@ -50,7 +50,7 @@ public class AutorListLiveData extends LiveData<List<AutorEntity>>  {
         List<AutorEntity> autors = new ArrayList<>();
         for (DataSnapshot childSnapshot : snapshot.getChildren()) {
             AutorEntity entity = childSnapshot.getValue(AutorEntity.class);
-            entity.setId(Integer.parseInt(childSnapshot.getKey()));
+            entity.setId(childSnapshot.getKey());
             autors.add(entity);
         }
         return autors;

@@ -34,8 +34,8 @@ public class authorViewModel extends AndroidViewModel {
         mRepository.delete(author);
     }
 
-    public void updateAuthor(AutorEntity author, int id) {
+    public void updateAuthor(AutorEntity author, String id) {
         String idd = String.valueOf(id);
-        mRepository.update(author, idd);
+        mRepository.update(author, id);
     }
 }

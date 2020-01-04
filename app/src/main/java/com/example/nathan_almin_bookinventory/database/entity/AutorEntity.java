@@ -1,6 +1,7 @@
 package com.example.nathan_almin_bookinventory.database.entity;
 
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
@@ -16,7 +17,8 @@ import java.util.Map;
 public class AutorEntity {
 
     @PrimaryKey
-    private int id;
+    @NonNull
+    private String id;
 
     private String autorName;
 
@@ -25,16 +27,16 @@ public class AutorEntity {
 
     }
 
-    public AutorEntity(int id, String autorName) {
+    public AutorEntity(String id, String autorName) {
         this.id = id;
         this.autorName = autorName;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
