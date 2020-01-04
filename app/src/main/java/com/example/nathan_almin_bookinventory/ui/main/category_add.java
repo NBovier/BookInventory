@@ -1,18 +1,16 @@
 package com.example.nathan_almin_bookinventory.ui.main;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.nathan_almin_bookinventory.R;
-import com.example.nathan_almin_bookinventory.database.entity.AutorEntity;
 import com.example.nathan_almin_bookinventory.database.entity.CategoryEntity;
-import com.example.nathan_almin_bookinventory.database.repository.AutorRepository;
 import com.example.nathan_almin_bookinventory.database.repository.CategoryRepository;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -60,7 +58,7 @@ public class category_add extends AppCompatActivity {
 
                 categoryEntity.setCatName(name.getText().toString());;
 
-                categoryRepository.insertCategory(categoryEntity);
+                categoryRepository.insert(categoryEntity);
 
 
 

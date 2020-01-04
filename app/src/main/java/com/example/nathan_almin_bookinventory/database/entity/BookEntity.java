@@ -1,12 +1,14 @@
 package com.example.nathan_almin_bookinventory.database.entity;
 
 
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
 import com.google.firebase.database.Exclude;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import java.util.Date;
 /*
 @Entity(tableName = "books",
         foreignKeys ={
@@ -27,8 +29,10 @@ import java.util.Date;
                         value = {"idLoc"}
                 )}
 )*/
+@Entity
 public class BookEntity {
 
+    @PrimaryKey
     private int id;
     private String title;
     private String date;
@@ -93,9 +97,11 @@ public class BookEntity {
     public void setIdLoc(int idLoc) {
         this.idLoc = idLoc;
     }
-    public BookEntity() {
-    }
 
+    @Ignore
+    public BookEntity(){
+
+    }
 
     public BookEntity(String title, String date, String summary, int idAutor, int idCategory, int idLoc) {
         this.title = title;

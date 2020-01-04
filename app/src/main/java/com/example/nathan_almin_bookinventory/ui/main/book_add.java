@@ -1,35 +1,20 @@
 package com.example.nathan_almin_bookinventory.ui.main;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LiveData;
-import androidx.room.DatabaseConfiguration;
-import androidx.room.InvalidationTracker;
-import androidx.sqlite.db.SupportSQLiteOpenHelper;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.nathan_almin_bookinventory.R;
-import com.example.nathan_almin_bookinventory.database.LocalDatabase;
-import com.example.nathan_almin_bookinventory.database.dao.BookDao;
-import com.example.nathan_almin_bookinventory.database.dao.CategoryDao;
-import com.example.nathan_almin_bookinventory.database.dao.ShelfLocDao;
-import com.example.nathan_almin_bookinventory.database.entity.AutorEntity;
 import com.example.nathan_almin_bookinventory.database.entity.BookEntity;
-import com.example.nathan_almin_bookinventory.database.repository.AutorRepository;
 import com.example.nathan_almin_bookinventory.database.repository.BookRepository;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class book_add extends AppCompatActivity {
 
@@ -107,7 +92,7 @@ public class book_add extends AppCompatActivity {
                 bookEntity.setSummary(summary.getText().toString());
                 bookEntity.setIdLoc(Integer.parseInt(loc.getSelectedItem().toString()));
 
-                bookRepository.insertBook(bookEntity);
+                bookRepository.insert(bookEntity);
 
 
 

@@ -1,16 +1,15 @@
 package com.example.nathan_almin_bookinventory.ui.main;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.nathan_almin_bookinventory.R;
-import com.example.nathan_almin_bookinventory.database.LocalDatabase;
 import com.example.nathan_almin_bookinventory.database.entity.ShelfLocEntity;
 import com.example.nathan_almin_bookinventory.database.repository.ShelfLocRepository;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -72,7 +71,7 @@ public class shelfloc_add extends AppCompatActivity {
                 shelfLocEntity.setBloc(Integer.parseInt(block.getText().toString()));
                 shelfLocEntity.setNumEtagere(Integer.parseInt(shelfNumber.getText().toString()));
 
-                shelfLocRepository.insertShelfLoc(shelfLocEntity);
+                shelfLocRepository.insert(shelfLocEntity);
 
 
 

@@ -1,13 +1,13 @@
 package com.example.nathan_almin_bookinventory.ui.main;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.nathan_almin_bookinventory.R;
 import com.example.nathan_almin_bookinventory.database.entity.AutorEntity;
@@ -59,7 +59,7 @@ public class author_add extends AppCompatActivity {
                 }
                 autorEntity.setAutorName(name.getText().toString());;
 
-                autorRepository.insertAutor(autorEntity);
+                autorRepository.insert(autorEntity);
 
 
 

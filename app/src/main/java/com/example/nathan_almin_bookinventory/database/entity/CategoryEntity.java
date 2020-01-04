@@ -1,16 +1,22 @@
 package com.example.nathan_almin_bookinventory.database.entity;
 
 
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
 import com.google.firebase.database.Exclude;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@Entity
 public class CategoryEntity {
 
     private String catName;
+    @PrimaryKey
     private int id;
-
+    @Ignore
     public CategoryEntity() {
 
     }

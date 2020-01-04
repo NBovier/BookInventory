@@ -117,7 +117,7 @@ public class book_details extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 bookEntity = mBooks.get(position);
-                mbookViewModel.deleteBook(bookEntity);
+                mbookViewModel.delete(bookEntity);
                 deleteToast.show();
                 onBackPressed();
             }
@@ -141,7 +141,7 @@ public class book_details extends AppCompatActivity {
                     bookEntity.setIdCategory(Integer.parseInt(category.getText().toString()));
                     bookEntity.setIdAutor(Integer.parseInt(author.getText().toString()));
                     bookEntity.setDate(date.getText().toString());
-                    mbookViewModel.updateBook(bookEntity);
+                    mbookViewModel.update(bookEntity, bookEntity.getId());
                     doneToast.show();
                     onBackPressed();
                 }

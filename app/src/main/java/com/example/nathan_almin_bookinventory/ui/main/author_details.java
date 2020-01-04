@@ -1,25 +1,21 @@
 package com.example.nathan_almin_bookinventory.ui.main;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+
 import com.example.nathan_almin_bookinventory.R;
 import com.example.nathan_almin_bookinventory.database.entity.AutorEntity;
-import com.example.nathan_almin_bookinventory.database.repository.AutorRepository;
 import com.example.nathan_almin_bookinventory.model.authorViewModel;
-import com.example.nathan_almin_bookinventory.util.AdapterListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class author_details extends AppCompatActivity {
@@ -109,7 +105,7 @@ public class author_details extends AppCompatActivity {
                     errorToast.show();
                 }else {
                     autorEntity.setAutorName(authorName.getText().toString());
-                    mauthorViewModel.updateAuthor(autorEntity);
+                    mauthorViewModel.updateAuthor(autorEntity, autorEntity.getId());
                     doneToast.show();
                     onBackPressed();
                 }
