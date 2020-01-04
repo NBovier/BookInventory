@@ -70,7 +70,8 @@
         android:contentDescription="Category_Management"
         android:onClick="showCategory"
         android:scaleType="fitCenter"
-        tools:ignore="VectorDrawableCompat" />
+        tools:ignore="VectorDrawableCompat"
+            app:srcCompat="@drawable/category_manage"/>
     </LinearLayout>
 
 

@@ -68,7 +68,7 @@ public class category_add extends AppCompatActivity {
                 alertDialog.setTitle("Category");
                 alertDialog.setCancelable(false);
                 alertDialog.setMessage("Category added");
-                alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", (dialog, which) -> showCategory());
+                alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", (dialog, which) -> onBackPressed());
                 alertDialog.show();
 
             }

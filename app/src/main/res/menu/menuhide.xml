@@ -22,6 +22,11 @@
                 android:id="@+id/nav_category"
                 android:title="Manage categories" />
         </menu>
+        <about>
+            <item
+                android:id="@+id/about"
+                android:title="About" />
+        </about>
     </item>
 
 

@@ -1,5 +1,6 @@
 package com.example.nathan_almin_bookinventory.ui.main;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -8,11 +9,11 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.nathan_almin_bookinventory.R;
-import com.example.nathan_almin_bookinventory.database.LocalDatabase;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -54,6 +55,18 @@ public class MainActivity extends AppCompatActivity {
                         }
                         if (id == R.id.nav_category) {
                             showCategory();
+                        }
+                        if(id == R.id.about){
+                            AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+                            alertDialog.setTitle("About");
+                            alertDialog.setMessage("App developped by Nathan & Almin");
+                            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                                    new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            dialog.dismiss();
+                                        }
+                                    });
+                            alertDialog.show();
                         }
 
                         return onOptionsItemSelected(item);

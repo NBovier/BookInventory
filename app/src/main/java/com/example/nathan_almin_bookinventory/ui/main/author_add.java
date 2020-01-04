@@ -69,7 +69,7 @@ public class author_add extends AppCompatActivity {
                 alertDialog.setTitle("Author");
                 alertDialog.setCancelable(false);
                 alertDialog.setMessage("Author added");
-                alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", (dialog, which) -> showAuthors());
+                alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", (dialog, which) -> onBackPressed());
                 alertDialog.show();
 
             }

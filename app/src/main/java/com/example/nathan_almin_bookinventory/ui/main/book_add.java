@@ -102,7 +102,7 @@ public class book_add extends AppCompatActivity {
                 alertDialog.setTitle("Book");
                 alertDialog.setCancelable(false);
                 alertDialog.setMessage("Book added");
-                alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", (dialog, which) -> showBooks());
+                alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", (dialog, which) -> onBackPressed());
                 alertDialog.show();
 
             }

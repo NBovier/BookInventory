@@ -81,7 +81,7 @@ public class shelfloc_add extends AppCompatActivity {
                 alertDialog.setTitle("Shelflocation");
                 alertDialog.setCancelable(false);
                 alertDialog.setMessage("Shelflocation added");
-                alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", (dialog, which) -> showShelfLocs());
+                alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", (dialog, which) -> onBackPressed());
                 alertDialog.show();
 
             }
