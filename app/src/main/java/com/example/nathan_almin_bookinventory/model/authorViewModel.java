@@ -23,18 +23,18 @@ public class authorViewModel extends AndroidViewModel {
     public authorViewModel (Application application) {
         super(application);
         mRepository = new AutorRepository(application);
-        mAllAuthors = mRepository.getAll();
+        mAllAuthors = mRepository.getAllAutors();
     }
 
     public LiveData<List<AutorEntity>> getAll() { return mAllAuthors; }
 
-    public void insert(AutorEntity author) { mRepository.insertAutor(author); }
+    public void insert(AutorEntity author) { mRepository.insert(author); }
 
     public void deleteAuthor(AutorEntity author) {
-        mRepository.deleteAutor(author);
+        mRepository.delete(author);
     }
 
-    public void updateAuthor(AutorEntity author) {
-        mRepository.updateAutor(author);
+    public void updateAuthor(AutorEntity author, String id) {
+        mRepository.update(author, id);
     }
 }

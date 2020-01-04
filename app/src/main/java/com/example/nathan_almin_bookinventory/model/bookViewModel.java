@@ -24,18 +24,18 @@ public class bookViewModel  extends AndroidViewModel {
     public bookViewModel (Application application) {
         super(application);
         mRepository = new BookRepository(application);
-        mAllBooks = mRepository.getAll();
+        mAllBooks = mRepository.getAllBooks();
     }
 
     public LiveData<List<BookEntity>> getAll() { return mAllBooks; }
 
-    public void insert(BookEntity book) { mRepository.insertBook(book); }
+    public void insert(BookEntity book) { mRepository.insert(book); }
 
-    public void deleteBook(BookEntity book) {
-        mRepository.deleteBook(book);
+    public void delete(BookEntity book) {
+        mRepository.delete(book);
     }
 
-    public void updateBook(BookEntity book) {
-        mRepository.updateBook(book);
+    public void update(BookEntity book, String id) {
+        mRepository.update(book, id);
     }
 }

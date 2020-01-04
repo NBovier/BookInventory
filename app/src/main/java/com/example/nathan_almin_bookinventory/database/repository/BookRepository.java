@@ -5,43 +5,47 @@ import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
 
-import com.example.nathan_almin_bookinventory.database.LocalDatabase;
-import com.example.nathan_almin_bookinventory.database.async.BookCreate;
-import com.example.nathan_almin_bookinventory.database.async.BookDelete;
-import com.example.nathan_almin_bookinventory.database.async.BookUpdate;
-import com.example.nathan_almin_bookinventory.database.dao.BookDao;
+
+import com.example.nathan_almin_bookinventory.database.entity.AutorEntity;
 import com.example.nathan_almin_bookinventory.database.entity.BookEntity;
+import com.example.nathan_almin_bookinventory.database.LiveData.BookListLiveData;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
 public class BookRepository {
-    //Components
-    private BookDao mBookDao;
     private LiveData<List<BookEntity>> mAllBooks;
-
-    /**
-     * Constructor
-     * @param application
-     */
     public BookRepository(Application application) {
-        LocalDatabase db = LocalDatabase.getLocalDatabase(application);
-        mBookDao = db.bookDao();
-        mAllBooks = mBookDao.getAll();
+        mAllBooks = getAllBooks();
     }
 
-    public LiveData<List<BookEntity>> getAll() {
-        return mAllBooks;
+    public void insert(BookEntity book) {
+        String id = FirebaseDatabase.getInstance().getReference("book").push().getKey();
+        FirebaseDatabase.getInstance()
+                .getReference("books")
+                .child(id)
+                .setValue(book);
     }
 
-    public void insertBook (BookEntity book) {
-        new BookCreate(mBookDao).execute(book);
+    public void update(BookEntity book, String Id) {
+        FirebaseDatabase.getInstance()
+                .getReference("books")
+                .child(Id)
+                .updateChildren(book.toMap());
     }
 
-    public void updateBook (BookEntity book) {
-        new BookUpdate(mBookDao).execute(book);
+    public void delete(BookEntity book) {
+        FirebaseDatabase.getInstance()
+                .getReference("books")
+                .child(String.valueOf(book.getId()))
+                .removeValue();
     }
 
-    public void deleteBook (BookEntity book) {
-        new BookDelete(mBookDao).execute(book);
+
+    public LiveData<List<BookEntity>> getAllBooks() {
+        DatabaseReference reference = FirebaseDatabase.getInstance()
+                .getReference("books");
+        return new BookListLiveData(reference);
     }
 }

@@ -4,35 +4,46 @@ import android.app.Application;
 
 import androidx.lifecycle.LiveData;
 
-import com.example.nathan_almin_bookinventory.database.LocalDatabase;
-import com.example.nathan_almin_bookinventory.database.async.CategoryCreate;
-import com.example.nathan_almin_bookinventory.database.dao.CategoryDao;
+import com.example.nathan_almin_bookinventory.database.LiveData.CategoryListLiveData;
 import com.example.nathan_almin_bookinventory.database.entity.CategoryEntity;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
 public class CategoryRepository {
-    //Components
-    private CategoryDao mCategoryDao;
-    private LiveData<List<CategoryEntity>> mAllCategory;
-
-    /**
-     * Constructor
-     * @param application
-     */
+    private LiveData<List<CategoryEntity>> mAllCategories;
     public CategoryRepository(Application application) {
-        LocalDatabase db = LocalDatabase.getLocalDatabase(application);
-        mCategoryDao = db.categoryDao();
-        mAllCategory = mCategoryDao.getAll();
+        mAllCategories = getAllCategories();
     }
 
-    public LiveData<List<CategoryEntity>> getAll() {
-        return mAllCategory;
+    public void insert(CategoryEntity category) {
+        String id = FirebaseDatabase.getInstance().getReference("categories").push().getKey();
+        FirebaseDatabase.getInstance()
+                .getReference("categories")
+                .child(id)
+                .setValue(category);
     }
 
-    public void insertCategory (CategoryEntity cat) {
-        new CategoryCreate(mCategoryDao).execute(cat);
+    public void update(CategoryEntity category, String Id) {
+        FirebaseDatabase.getInstance()
+                .getReference("categories")
+                .child(Id)
+                .updateChildren(category.toMap());
     }
 
+    public void delete(CategoryEntity category) {
+        FirebaseDatabase.getInstance()
+                .getReference("categories")
+                .child(String.valueOf(category.getId()))
+                .removeValue();
+    }
+
+
+    public LiveData<List<CategoryEntity>> getAllCategories() {
+        DatabaseReference reference = FirebaseDatabase.getInstance()
+                .getReference("categories");
+        return new CategoryListLiveData(reference);
+    }
 
 }
