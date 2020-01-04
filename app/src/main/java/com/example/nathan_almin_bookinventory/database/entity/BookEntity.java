@@ -1,6 +1,7 @@
 package com.example.nathan_almin_bookinventory.database.entity;
 
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
@@ -33,7 +34,8 @@ import java.util.Map;
 public class BookEntity {
 
     @PrimaryKey
-    private int id;
+    @NonNull
+    private String id;
     private String title;
     private String date;
     private String summary;
@@ -42,11 +44,11 @@ public class BookEntity {
     private int idLoc;
 
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
